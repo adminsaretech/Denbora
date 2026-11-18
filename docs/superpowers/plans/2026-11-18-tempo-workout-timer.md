@@ -57,16 +57,17 @@
 
 **Interfaces:**
 - `WorkoutBlock({required String id, required String name, required int workSeconds, int restAfterSeconds = 0})`.
-- `WorkoutPlan({required String id, required String name, required List<WorkoutBlock> blocks, int preparationSeconds = 5, int rounds = 1, int sets = 1, int restBetweenRoundsSeconds = 0, int restBetweenSetsSeconds = 0, int cooldownSeconds = 0, bool isBuiltIn = false})`.
+- `WorkoutPlan({required String id, required String name, WorkoutMode mode = WorkoutMode.intervals, required List<WorkoutBlock> blocks, int preparationSeconds = 5, int rounds = 1, int sets = 1, int restBetweenRoundsSeconds = 0, int restBetweenSetsSeconds = 0, int cooldownSeconds = 0, DateTime? createdAt, DateTime? updatedAt, DateTime? lastUsedAt, bool isBuiltIn = false})`; modes are `intervals` and count-up `stopwatch`.
 - `MonotonicClock.nowMicroseconds() -> int`; `FakeMonotonicClock` implements this contract in tests.
 - `TimerEngine({required WorkoutPlan plan, required MonotonicClock clock})`; public operations: `start()`, `pause()`, `resume()`, `restart()`, `skipPhase()`, `advance()`, `snapshot`.
-- `TimerPhase` carries `kind`, `label`, `durationSeconds`, `roundNumber`, `setNumber`, and `blockIndex`; `TimerSnapshot` carries `status`, `phase`, `phaseRemaining`, `elapsed`, `completedWorkBlocks`, and newly crossed `events`.
-- `WorkoutTemplates.all` returns original templates: HIIT 20/10, Tabata 20/10 × 8, EMOM, Circuit, Free cardio, Stretching.
+- `TimerPhase.kind` is `preparation`, `work`, `rest`, `roundRest`, `setRest`, `cooldown`, `stopwatch`, or `finished`; each phase carries `label`, `durationSeconds`, `roundNumber`, `setNumber`, and `blockIndex`. `TimerSnapshot` carries `status`, `phase`, nullable `phaseRemaining` (null only for stopwatch), `elapsed`, `completedWorkBlocks`, and newly crossed `events`.
+- `TimerEngine.stop()` completes a freely running stopwatch or stops an interval session without marking it complete.
+- `WorkoutTemplates.all` returns original templates: HIIT 20/10, Tabata 20/10 × 8, EMOM, Circuit, Free cardio stopwatch, Stretching.
 
-- [ ] Write tests for template shape, invalid durations/counts, empty plan, and immutable built-in templates.
+- [ ] Write tests for template shape (including count-up Cardio libre), invalid durations/counts, empty interval plan, and immutable built-in templates.
 - [ ] Run the focused test file and confirm failures on missing model/validation/template APIs.
 - [ ] Implement model validation and the six deterministic templates.
-- [ ] Write timer-engine tests for prepare/work/rest/round/set/cooldown/finish, countdown cues, pause/resume, restart, skip, zero rests, late frames, multiple crossed boundaries, and device-sleep elapsed time.
+- [ ] Write timer-engine tests for prepare/work/rest/round/set/cooldown/finish, count-up stopwatch, countdown cues, pause/resume, restart, stop/skip, zero rests, late frames, multiple crossed boundaries, and device-sleep elapsed time.
 - [ ] Run focused tests and confirm failures before implementing engine behavior.
 - [ ] Implement the pure Dart engine using `nowMicroseconds()`; ticks never decrement a stored seconds counter.
 - [ ] Run all domain tests and confirm every phase transition and cue event is deterministic under the fake clock.
