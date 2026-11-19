@@ -9,10 +9,16 @@ Registro de los agentes, sus entregas y las comprobaciones realizadas. Los nombr
 | REA e ingeniería funcional | Analizó como usuario las páginas públicas, capturas y reseñas de Timer+; sin descargar ni inspeccionar IPA/APK, código o recursos. | Evidencia y criterios en [FEATURES.md](FEATURES.md); completado. |
 | Arquitectura | Propuso stack y límites nativos; registró el reloj monotónico, almacenamiento local y restricciones de segundo plano. | [ARCHITECTURE.md](ARCHITECTURE.md); el núcleo Flutter está implementado, los servicios de plataforma siguen pendientes. |
 | UI/UX y marca | Propuso tres direcciones visuales y revisó las capturas del usuario para orientar la navegación y legibilidad. | [BRAND.md](BRAND.md), [DESIGN.md](DESIGN.md), [UX_REVIEW.md](UX_REVIEW.md), SVG y PNG opaco original de 1024 × 1024; el nombre Tempo es provisional. |
-| QA y seguridad | Definió la estrategia de pruebas y revisó los cambios de navegación/localización. | [QA_SECURITY.md](QA_SECURITY.md); 55 pruebas automatizadas pasan y `flutter analyze` está limpio. Pendientes las pruebas de dispositivo y rendimiento. |
+| QA y seguridad | Definió la estrategia de pruebas y revisó los cambios de navegación/localización. | [QA_SECURITY.md](QA_SECURITY.md); 56 pruebas automatizadas pasan y `flutter analyze` está limpio. Pendientes las pruebas de dispositivo y rendimiento. |
 | Tiendas y privacidad | Preparó textos, metadatos, capturas requeridas y borradores de privacidad/datos. | [STORE_LISTING.md](STORE_LISTING.md), [PRIVACY.md](PRIVACY.md); listados y formularios deben contrastarse con el release final. |
 | Documentación | Preparó README, changelog y registro de fases. | [README.md](../README.md), [CHANGELOG.md](../CHANGELOG.md) y este documento; actualización continua. |
 | Ingeniería principal | Coordinó interfaces y fases; implementó modelo, reloj, persistencia cifrada, pantallas y pruebas. | Rama `codex/tempo-v1`, subida al repositorio indicado por el usuario. |
+
+### Auditoria especializada de diseño movil
+
+| Agente | Trabajo coordinado | Entrega / estado |
+|---|---|---|
+| Experto mobile-design | Instalacion de la skill `mobile-design` con auditorias de seguridad publicas aprobadas; revisión solo lectura de capturas y codigo de Tempo junto con el subagente `/root/mobile_design_expert`. | Detectó configuración Tabata incompleta, búsqueda estrecha y FAB que cubría rutinas, y repetición de superficies/iconos genéricos. Sus recomendaciones se aplicaron a Tabata, biblioteca, cronómetro, «Más» y los roles de color; limitaciones anotadas en [UX_REVIEW.md](UX_REVIEW.md). |
 
 ## Estado por fase
 

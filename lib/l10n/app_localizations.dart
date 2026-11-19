@@ -143,7 +143,7 @@ abstract class AppLocalizations {
   /// No description provided for @navWorkouts.
   ///
   /// In es, this message translates to:
-  /// **'Rondas'**
+  /// **'Rutinas'**
   String get navWorkouts;
 
   /// No description provided for @navStopwatch.
@@ -161,26 +161,74 @@ abstract class AppLocalizations {
   /// No description provided for @tabataQuickIntro.
   ///
   /// In es, this message translates to:
-  /// **'Ajusta trabajo, descanso y rondas antes de empezar.'**
+  /// **'Define los intervalos y las pausas entre ciclos.'**
   String get tabataQuickIntro;
+
+  /// No description provided for @tabataTimingSection.
+  ///
+  /// In es, this message translates to:
+  /// **'Intervalos'**
+  String get tabataTimingSection;
+
+  /// No description provided for @tabataCycleSection.
+  ///
+  /// In es, this message translates to:
+  /// **'Ciclos'**
+  String get tabataCycleSection;
+
+  /// No description provided for @tabataFinishSection.
+  ///
+  /// In es, this message translates to:
+  /// **'Cierre'**
+  String get tabataFinishSection;
+
+  /// No description provided for @tabataPreparation.
+  ///
+  /// In es, this message translates to:
+  /// **'Preparación'**
+  String get tabataPreparation;
 
   /// No description provided for @tabataWork.
   ///
   /// In es, this message translates to:
-  /// **'Trabajo (s)'**
+  /// **'Trabajo'**
   String get tabataWork;
 
   /// No description provided for @tabataRest.
   ///
   /// In es, this message translates to:
-  /// **'Descanso (s)'**
+  /// **'Descanso tras cada ronda'**
   String get tabataRest;
 
   /// No description provided for @tabataRounds.
   ///
   /// In es, this message translates to:
-  /// **'Rondas'**
+  /// **'Rondas por ciclo'**
   String get tabataRounds;
+
+  /// No description provided for @tabataCycles.
+  ///
+  /// In es, this message translates to:
+  /// **'Ciclos'**
+  String get tabataCycles;
+
+  /// No description provided for @tabataRestBetweenCycles.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso entre ciclos'**
+  String get tabataRestBetweenCycles;
+
+  /// No description provided for @tabataCooldown.
+  ///
+  /// In es, this message translates to:
+  /// **'Enfriamiento'**
+  String get tabataCooldown;
+
+  /// No description provided for @tabataCycleSummary.
+  ///
+  /// In es, this message translates to:
+  /// **'{rounds} rondas por ciclo · {cycles} ciclos'**
+  String tabataCycleSummary(int rounds, int cycles);
 
   /// No description provided for @tabataDuration.
   ///
@@ -197,8 +245,20 @@ abstract class AppLocalizations {
   /// No description provided for @tabataHint.
   ///
   /// In es, this message translates to:
-  /// **'Estos cambios son para esta sesión. Guarda rutinas personalizadas en Rondas.'**
+  /// **'Los ajustes solo se aplican a esta sesión; crea una rutina para guardarlos.'**
   String get tabataHint;
+
+  /// No description provided for @tabataDecreasePreparation.
+  ///
+  /// In es, this message translates to:
+  /// **'Reducir segundos de preparación'**
+  String get tabataDecreasePreparation;
+
+  /// No description provided for @tabataIncreasePreparation.
+  ///
+  /// In es, this message translates to:
+  /// **'Aumentar segundos de preparación'**
+  String get tabataIncreasePreparation;
 
   /// No description provided for @tabataDecreaseWork.
   ///
@@ -227,20 +287,62 @@ abstract class AppLocalizations {
   /// No description provided for @tabataDecreaseRounds.
   ///
   /// In es, this message translates to:
-  /// **'Reducir rondas'**
+  /// **'Reducir rondas por ciclo'**
   String get tabataDecreaseRounds;
 
   /// No description provided for @tabataIncreaseRounds.
   ///
   /// In es, this message translates to:
-  /// **'Aumentar rondas'**
+  /// **'Aumentar rondas por ciclo'**
   String get tabataIncreaseRounds;
+
+  /// No description provided for @tabataDecreaseCycles.
+  ///
+  /// In es, this message translates to:
+  /// **'Reducir ciclos'**
+  String get tabataDecreaseCycles;
+
+  /// No description provided for @tabataIncreaseCycles.
+  ///
+  /// In es, this message translates to:
+  /// **'Aumentar ciclos'**
+  String get tabataIncreaseCycles;
+
+  /// No description provided for @tabataDecreaseCycleRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Reducir descanso entre ciclos'**
+  String get tabataDecreaseCycleRest;
+
+  /// No description provided for @tabataIncreaseCycleRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Aumentar descanso entre ciclos'**
+  String get tabataIncreaseCycleRest;
+
+  /// No description provided for @tabataDecreaseCooldown.
+  ///
+  /// In es, this message translates to:
+  /// **'Reducir enfriamiento'**
+  String get tabataDecreaseCooldown;
+
+  /// No description provided for @tabataIncreaseCooldown.
+  ///
+  /// In es, this message translates to:
+  /// **'Aumentar enfriamiento'**
+  String get tabataIncreaseCooldown;
 
   /// No description provided for @stopwatchIntro.
   ///
   /// In es, this message translates to:
   /// **'Cronometra una sesión libre, sin intervalos.'**
   String get stopwatchIntro;
+
+  /// No description provided for @stopwatchReady.
+  ///
+  /// In es, this message translates to:
+  /// **'Listo para empezar'**
+  String get stopwatchReady;
 
   /// No description provided for @stopwatchStart.
   ///
@@ -265,6 +367,18 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Tu progreso y tus preferencias, en un solo lugar.'**
   String get moreLead;
+
+  /// No description provided for @moreActivitySection.
+  ///
+  /// In es, this message translates to:
+  /// **'Actividad'**
+  String get moreActivitySection;
+
+  /// No description provided for @morePreferencesSection.
+  ///
+  /// In es, this message translates to:
+  /// **'Preferencias'**
+  String get morePreferencesSection;
 
   /// No description provided for @moreHistory.
   ///
@@ -467,7 +581,7 @@ abstract class AppLocalizations {
   /// No description provided for @workoutsTitle.
   ///
   /// In es, this message translates to:
-  /// **'Entrenamientos'**
+  /// **'Rutinas'**
   String get workoutsTitle;
 
   /// No description provided for @workoutsSearch.
@@ -775,6 +889,12 @@ abstract class AppLocalizations {
   /// **'Descanso entre series'**
   String get timerPhaseSetRest;
 
+  /// No description provided for @timerPhaseCycleRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso entre ciclos'**
+  String get timerPhaseCycleRest;
+
   /// No description provided for @timerPhaseCooldown.
   ///
   /// In es, this message translates to:
@@ -804,6 +924,12 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Serie {current} de {total}'**
   String timerSetLabel(int current, int total);
+
+  /// No description provided for @timerCycleLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Ciclo {current} de {total}'**
+  String timerCycleLabel(int current, int total);
 
   /// No description provided for @timerElapsedLabel.
   ///

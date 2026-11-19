@@ -31,7 +31,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get navTabata => 'Tabata';
 
   @override
-  String get navWorkouts => 'Rondas';
+  String get navWorkouts => 'Rutinas';
 
   @override
   String get navStopwatch => 'Cronómetro';
@@ -41,16 +41,42 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tabataQuickIntro =>
-      'Ajusta trabajo, descanso y rondas antes de empezar.';
+      'Define los intervalos y las pausas entre ciclos.';
 
   @override
-  String get tabataWork => 'Trabajo (s)';
+  String get tabataTimingSection => 'Intervalos';
 
   @override
-  String get tabataRest => 'Descanso (s)';
+  String get tabataCycleSection => 'Ciclos';
 
   @override
-  String get tabataRounds => 'Rondas';
+  String get tabataFinishSection => 'Cierre';
+
+  @override
+  String get tabataPreparation => 'Preparación';
+
+  @override
+  String get tabataWork => 'Trabajo';
+
+  @override
+  String get tabataRest => 'Descanso tras cada ronda';
+
+  @override
+  String get tabataRounds => 'Rondas por ciclo';
+
+  @override
+  String get tabataCycles => 'Ciclos';
+
+  @override
+  String get tabataRestBetweenCycles => 'Descanso entre ciclos';
+
+  @override
+  String get tabataCooldown => 'Enfriamiento';
+
+  @override
+  String tabataCycleSummary(int rounds, int cycles) {
+    return '$rounds rondas por ciclo · $cycles ciclos';
+  }
 
   @override
   String get tabataDuration => 'Duración aproximada';
@@ -60,7 +86,13 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get tabataHint =>
-      'Estos cambios son para esta sesión. Guarda rutinas personalizadas en Rondas.';
+      'Los ajustes solo se aplican a esta sesión; crea una rutina para guardarlos.';
+
+  @override
+  String get tabataDecreasePreparation => 'Reducir segundos de preparación';
+
+  @override
+  String get tabataIncreasePreparation => 'Aumentar segundos de preparación';
 
   @override
   String get tabataDecreaseWork => 'Reducir segundos de trabajo';
@@ -75,13 +107,34 @@ class AppLocalizationsEs extends AppLocalizations {
   String get tabataIncreaseRest => 'Aumentar segundos de descanso';
 
   @override
-  String get tabataDecreaseRounds => 'Reducir rondas';
+  String get tabataDecreaseRounds => 'Reducir rondas por ciclo';
 
   @override
-  String get tabataIncreaseRounds => 'Aumentar rondas';
+  String get tabataIncreaseRounds => 'Aumentar rondas por ciclo';
+
+  @override
+  String get tabataDecreaseCycles => 'Reducir ciclos';
+
+  @override
+  String get tabataIncreaseCycles => 'Aumentar ciclos';
+
+  @override
+  String get tabataDecreaseCycleRest => 'Reducir descanso entre ciclos';
+
+  @override
+  String get tabataIncreaseCycleRest => 'Aumentar descanso entre ciclos';
+
+  @override
+  String get tabataDecreaseCooldown => 'Reducir enfriamiento';
+
+  @override
+  String get tabataIncreaseCooldown => 'Aumentar enfriamiento';
 
   @override
   String get stopwatchIntro => 'Cronometra una sesión libre, sin intervalos.';
+
+  @override
+  String get stopwatchReady => 'Listo para empezar';
 
   @override
   String get stopwatchStart => 'Iniciar cronómetro';
@@ -95,6 +148,12 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get moreLead => 'Tu progreso y tus preferencias, en un solo lugar.';
+
+  @override
+  String get moreActivitySection => 'Actividad';
+
+  @override
+  String get morePreferencesSection => 'Preferencias';
 
   @override
   String get moreHistory => 'Historial de sesiones';
@@ -202,7 +261,7 @@ class AppLocalizationsEs extends AppLocalizations {
   String get settingsPrivacy => 'Sin cuenta, anuncios ni compras.';
 
   @override
-  String get workoutsTitle => 'Entrenamientos';
+  String get workoutsTitle => 'Rutinas';
 
   @override
   String get workoutsSearch => 'Buscar entrenamiento';
@@ -365,6 +424,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get timerPhaseSetRest => 'Descanso entre series';
 
   @override
+  String get timerPhaseCycleRest => 'Descanso entre ciclos';
+
+  @override
   String get timerPhaseCooldown => 'Vuelta a la calma';
 
   @override
@@ -381,6 +443,11 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String timerSetLabel(int current, int total) {
     return 'Serie $current de $total';
+  }
+
+  @override
+  String timerCycleLabel(int current, int total) {
+    return 'Ciclo $current de $total';
   }
 
   @override

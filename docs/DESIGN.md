@@ -69,3 +69,12 @@ No usar coral sobre fondo oscuro para texto pequeño; reservarlo para acentos no
 ## Logo
 
 El símbolo original en SVG está en assets/branding/tempo-mark.svg. Es una marca geométrica de ciclo abierto con segmentos escalonados. La variante PNG de tienda está en assets/branding/tempo-app-icon-1024.png, exportada a 1024 × 1024, con esquinas compuestas sobre tinta y sin canal alfa. Antes de publicar, comprobar las guías vigentes de cada tienda.
+
+## Refinamiento mobile — 20-11-2026
+
+- Lectura: producto de fitness de uso frecuente y consulta rápida, con variance 4, movimiento 2 y densidad 5. La cuenta atrás y la fase son la firma; la decoración queda subordinada a esa lectura.
+- Color: el secundario de navegación sigue el verde/turquesa primario. El coral se reserva para avisos puntuales; no se usa como acento persistente en controles seleccionados.
+- Estructura: formularios agrupados con encabezados y divisores. Las tarjetas quedan para rutinas navegables; no se apilan superficies para decorar.
+- Tabata: se presentan preparación, trabajo, descanso tras cada ronda, rondas por ciclo, ciclos, descanso entre ciclos y enfriamiento; resumen y duración estimada se actualizan al cambiar valores.
+- Acción principal: «Iniciar Tabata» permanece en el pie; búsqueda de rutinas ocupa todo el ancho y «Crear entrenamiento» queda en la barra superior para no tapar contenido.
+- Acceso: conservar objetivos táctiles de 56 dp, etiquetas para lectores de pantalla, texto escalable y estados con nombre además de color. Falta validar al 200 % de texto y con VoiceOver/TalkBack en dispositivos.

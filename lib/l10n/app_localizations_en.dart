@@ -31,7 +31,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get navTabata => 'Tabata';
 
   @override
-  String get navWorkouts => 'Rounds';
+  String get navWorkouts => 'Workouts';
 
   @override
   String get navStopwatch => 'Stopwatch';
@@ -41,16 +41,42 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tabataQuickIntro =>
-      'Set your work, rest, and rounds before you start.';
+      'Set your intervals and the pauses between cycles.';
 
   @override
-  String get tabataWork => 'Work (s)';
+  String get tabataTimingSection => 'Intervals';
 
   @override
-  String get tabataRest => 'Rest (s)';
+  String get tabataCycleSection => 'Cycles';
 
   @override
-  String get tabataRounds => 'Rounds';
+  String get tabataFinishSection => 'Finish';
+
+  @override
+  String get tabataPreparation => 'Preparation';
+
+  @override
+  String get tabataWork => 'Work';
+
+  @override
+  String get tabataRest => 'Rest after each round';
+
+  @override
+  String get tabataRounds => 'Rounds per cycle';
+
+  @override
+  String get tabataCycles => 'Cycles';
+
+  @override
+  String get tabataRestBetweenCycles => 'Rest between cycles';
+
+  @override
+  String get tabataCooldown => 'Cool-down';
+
+  @override
+  String tabataCycleSummary(int rounds, int cycles) {
+    return '$rounds rounds per cycle · $cycles cycles';
+  }
 
   @override
   String get tabataDuration => 'Estimated duration';
@@ -60,7 +86,13 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tabataHint =>
-      'Changes apply to this session. Save custom workouts in Rounds.';
+      'These changes apply to this session. Create a workout to save them.';
+
+  @override
+  String get tabataDecreasePreparation => 'Decrease preparation seconds';
+
+  @override
+  String get tabataIncreasePreparation => 'Increase preparation seconds';
 
   @override
   String get tabataDecreaseWork => 'Decrease work seconds';
@@ -75,13 +107,34 @@ class AppLocalizationsEn extends AppLocalizations {
   String get tabataIncreaseRest => 'Increase rest seconds';
 
   @override
-  String get tabataDecreaseRounds => 'Decrease rounds';
+  String get tabataDecreaseRounds => 'Decrease rounds per cycle';
 
   @override
-  String get tabataIncreaseRounds => 'Increase rounds';
+  String get tabataIncreaseRounds => 'Increase rounds per cycle';
+
+  @override
+  String get tabataDecreaseCycles => 'Decrease cycles';
+
+  @override
+  String get tabataIncreaseCycles => 'Increase cycles';
+
+  @override
+  String get tabataDecreaseCycleRest => 'Decrease rest between cycles';
+
+  @override
+  String get tabataIncreaseCycleRest => 'Increase rest between cycles';
+
+  @override
+  String get tabataDecreaseCooldown => 'Decrease cool-down';
+
+  @override
+  String get tabataIncreaseCooldown => 'Increase cool-down';
 
   @override
   String get stopwatchIntro => 'Time a free session without intervals.';
+
+  @override
+  String get stopwatchReady => 'Ready when you are';
 
   @override
   String get stopwatchStart => 'Start stopwatch';
@@ -95,6 +148,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get moreLead => 'Your progress and preferences, all in one place.';
+
+  @override
+  String get moreActivitySection => 'Activity';
+
+  @override
+  String get morePreferencesSection => 'Preferences';
 
   @override
   String get moreHistory => 'Session history';
@@ -362,6 +421,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get timerPhaseSetRest => 'Rest between sets';
 
   @override
+  String get timerPhaseCycleRest => 'Rest between cycles';
+
+  @override
   String get timerPhaseCooldown => 'Cool down';
 
   @override
@@ -378,6 +440,11 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String timerSetLabel(int current, int total) {
     return 'Set $current of $total';
+  }
+
+  @override
+  String timerCycleLabel(int current, int total) {
+    return 'Cycle $current of $total';
   }
 
   @override

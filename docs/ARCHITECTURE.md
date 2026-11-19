@@ -138,3 +138,7 @@ The Android API target follows the current Play requirement; Xcode 26.6/macOS re
 ## Current scope boundary
 
 This document is a design and build contract, not proof that native background services, health data, watches, Live Activities, store signing, or store compliance have been implemented. The user brief requires those optional integrations to be explained; each must be marked implemented only after native code, device tests, permission flows, and policy review are complete.
+
+## Tabata quick setup
+
+The quick Tabata screen reuses `WorkoutPlan.sets` and `restBetweenSetsSeconds` as cycles and rest between cycles, preserving stored JSON compatibility. `rounds` means rounds per cycle. Tabata's “rest after each round” is stored on its work block, including after the final round in a cycle; a configured inter-cycle pause follows as a separate phase. The quick timer labels the existing set index as a cycle while the general workout editor retains its existing “sets” terminology.

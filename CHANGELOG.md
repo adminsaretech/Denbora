@@ -4,9 +4,17 @@ Los cambios notables se documentan aquí. No se ha publicado una versión comerc
 
 ## Unreleased
 
+### Refinamiento de interfaz y Tabata
+
+- La configuración rápida de Tabata incorpora preparación, descanso tras cada ronda, rondas por ciclo, ciclos, descanso entre ciclos y enfriamiento; recalcula el tiempo previsto y fija el inicio en el pie.
+- El descanso tras cada ronda se añade también al final del ciclo; la pausa entre ciclos es una fase independiente. El temporizador anuncia «Ciclo N de M».
+- La búsqueda de la biblioteca ocupa todo el ancho y crear una rutina ya no cubre elementos de la lista.
+- Se simplificaron Cronómetro y Más, y el color secundario ya no introduce coral permanente en la navegación.
+- Un agente experto de diseño móvil revisó las capturas y el código; sus hallazgos y límites están en [docs/UX_REVIEW.md](docs/UX_REVIEW.md).
+
 ### Interfaz y navegación
 
-- Añadida navegación inferior con Tabata, Rondas, Cronómetro y Más.
+- Añadida navegación inferior con Tabata, Rutinas, Cronómetro y Más.
 - Tabata permite ajustar trabajo, descanso y rondas con controles grandes y
   muestra la duración aproximada antes de iniciar.
 - Cronómetro tiene un acceso directo al modo libre; Más agrupa el historial y
@@ -30,7 +38,7 @@ Los cambios notables se documentan aquí. No se ha publicado una versión comerc
 
 ### Verificado
 
-- 53 pruebas unitarias, de repositorio y widgets pasan; `flutter analyze` no informa incidencias tras la última revisión.
+- 56 pruebas unitarias, de repositorio y widgets pasan; `flutter analyze` no informa incidencias tras la última revisión.
 - APK Android debug y bundle AAB release compilados correctamente en Windows con `flutter build apk --debug` y `flutter build appbundle --release` (R8/ProGuard activo).
 - El AAB de 50,5 MB fue verificado con `jarsigner` y está sin firmar; solo puede firmarse para tienda con la keystore del titular.
 - Iconos Android e iOS generados desde el PNG original opaco de 1024 × 1024.

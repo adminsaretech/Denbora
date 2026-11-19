@@ -117,6 +117,47 @@ void main() {
     expect(find.bySemanticsLabel('Cronómetro, 1:05'), findsOneWidget);
     expect(find.byKey(const ValueKey('timer-stop')), findsOneWidget);
   });
+
+  testWidgets('labels Tabata groups as cycles in the active timer', (
+    tester,
+  ) async {
+    final plan = WorkoutPlan(
+      id: 'tabata-20-10',
+      name: 'Tabata',
+      preparationSeconds: 0,
+      rounds: 1,
+      sets: 2,
+      restBetweenSetsSeconds: 1,
+      blocks: const [
+        WorkoutBlock(id: 'tabata', name: 'Trabajo', workSeconds: 10),
+      ],
+    );
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          timerControllerProvider.overrideWithValue(controller),
+          settingsRepositoryProvider.overrideWithValue(
+            SettingsRepository(MemorySettingsStorage()),
+          ),
+          initialAppSettingsProvider.overrideWithValue(
+            const AppSettings(onboardingCompleted: true),
+          ),
+        ],
+        child: TempoApp(homeOverride: WorkoutTimerScreen(plan: plan)),
+      ),
+    );
+    await tester.pumpAndSettle();
+
+    expect(find.text('Ciclo 1 de 2'), findsOneWidget);
+    controller.skipPhase();
+    await tester.pumpAndSettle();
+    expect(find.text('Descanso entre ciclos'), findsOneWidget);
+
+    controller.skipPhase();
+    await tester.pumpAndSettle();
+    expect(find.text('Ciclo 2 de 2'), findsOneWidget);
+  });
 }
 
 class ManualClock implements MonotonicClock {

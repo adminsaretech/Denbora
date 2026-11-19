@@ -170,7 +170,9 @@ class _WorkoutTimerScreenState extends ConsumerState<WorkoutTimerScreen>
                             ),
                             if (widget.plan.sets > 1)
                               Text(
-                                strings.timerSetLabel(
+                                (widget.plan.id == 'tabata-20-10'
+                                    ? strings.timerCycleLabel
+                                    : strings.timerSetLabel)(
                                   snapshot.phase.setNumber,
                                   widget.plan.sets,
                                 ),
@@ -382,7 +384,10 @@ class _WorkoutTimerScreenState extends ConsumerState<WorkoutTimerScreen>
         TimerPhaseKind.work => strings.timerPhaseWork,
         TimerPhaseKind.rest => strings.timerPhaseRest,
         TimerPhaseKind.roundRest => strings.timerPhaseRoundRest,
-        TimerPhaseKind.setRest => strings.timerPhaseSetRest,
+        TimerPhaseKind.setRest =>
+          widget.plan.id == 'tabata-20-10'
+              ? strings.timerPhaseCycleRest
+              : strings.timerPhaseSetRest,
         TimerPhaseKind.cooldown => strings.timerPhaseCooldown,
         TimerPhaseKind.stopwatch => strings.timerPhaseStopwatch,
         TimerPhaseKind.finished => strings.timerPhaseFinished,

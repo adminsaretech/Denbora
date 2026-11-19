@@ -119,56 +119,61 @@ class _WorkoutLibraryScreenState extends ConsumerState<WorkoutLibraryScreen> {
     final strings = AppLocalizations.of(context);
     final visible = _visiblePlans;
     return Scaffold(
-      appBar: AppBar(title: Text(strings.workoutsTitle)),
-      floatingActionButton: FloatingActionButton.extended(
-        key: const ValueKey('create-workout'),
-        onPressed: () => _openEditor(),
-        icon: const Icon(Icons.add_rounded),
-        label: Text(strings.workoutsCreate),
+      appBar: AppBar(
+        title: Text(strings.workoutsTitle),
+        actions: [
+          IconButton(
+            key: const ValueKey('create-workout'),
+            tooltip: strings.workoutsCreate,
+            onPressed: () => _openEditor(),
+            icon: const Icon(Icons.add_rounded),
+          ),
+        ],
       ),
       body: SafeArea(
         child: Column(
           children: [
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 12, 20, 4),
-              child: Row(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Expanded(
-                    child: TextField(
-                      key: const ValueKey('workout-search'),
-                      controller: _searchController,
-                      onChanged: (_) => setState(() {}),
-                      textInputAction: TextInputAction.search,
-                      decoration: InputDecoration(
-                        prefixIcon: const Icon(Icons.search_rounded),
-                        hintText: strings.workoutsSearch,
-                        border: const OutlineInputBorder(),
-                      ),
+                  TextField(
+                    key: const ValueKey('workout-search'),
+                    controller: _searchController,
+                    onChanged: (_) => setState(() {}),
+                    textInputAction: TextInputAction.search,
+                    decoration: InputDecoration(
+                      prefixIcon: const Icon(Icons.search_rounded),
+                      hintText: strings.workoutsSearch,
+                      border: const OutlineInputBorder(),
                     ),
                   ),
-                  const SizedBox(width: 12),
-                  DropdownButton<WorkoutSort>(
-                    key: const ValueKey('workout-sort'),
-                    value: _sort,
-                    underline: const SizedBox.shrink(),
-                    items: [
-                      DropdownMenuItem(
-                        value: WorkoutSort.recent,
-                        child: Text(strings.workoutsSortRecent),
-                      ),
-                      DropdownMenuItem(
-                        value: WorkoutSort.name,
-                        child: Text(strings.workoutsSortName),
-                      ),
-                    ],
-                    onChanged: (value) {
-                      if (value == null) return;
-                      setState(() {
-                        _sort = value;
-                        _loading = true;
-                      });
-                      _reload();
-                    },
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: DropdownButton<WorkoutSort>(
+                      key: const ValueKey('workout-sort'),
+                      value: _sort,
+                      underline: const SizedBox.shrink(),
+                      items: [
+                        DropdownMenuItem(
+                          value: WorkoutSort.recent,
+                          child: Text(strings.workoutsSortRecent),
+                        ),
+                        DropdownMenuItem(
+                          value: WorkoutSort.name,
+                          child: Text(strings.workoutsSortName),
+                        ),
+                      ],
+                      onChanged: (value) {
+                        if (value == null) return;
+                        setState(() {
+                          _sort = value;
+                          _loading = true;
+                        });
+                        _reload();
+                      },
+                    ),
                   ),
                 ],
               ),

@@ -36,12 +36,8 @@ abstract final class AppTheme {
       brightness: brightness,
       primary: primary,
       onPrimary: onPrimary,
-      secondary: brightness == Brightness.light
-          ? TempoTokens.coral
-          : TempoTokens.amber,
-      onSecondary: brightness == Brightness.light
-          ? Colors.white
-          : TempoTokens.ink,
+      secondary: primary,
+      onSecondary: onPrimary,
       error: brightness == Brightness.light
           ? TempoTokens.coral
           : TempoTokens.amber,
