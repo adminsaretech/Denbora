@@ -77,4 +77,3 @@ class _TempoHomeScreenState extends State<TempoHomeScreen> {
     );
   }
 }
-

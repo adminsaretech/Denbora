@@ -463,4 +463,3 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get close => 'Cerrar';
 }
-

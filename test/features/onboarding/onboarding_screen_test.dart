@@ -96,4 +96,3 @@ class MemorySettingsStorage implements SettingsStorage {
   @override
   Future<void> setString(String key, String value) async => values[key] = value;
 }
-

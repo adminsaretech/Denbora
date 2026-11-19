@@ -31,4 +31,3 @@ class TempoApp extends ConsumerWidget {
     );
   }
 }
-

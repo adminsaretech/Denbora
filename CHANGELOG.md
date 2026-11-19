@@ -43,4 +43,3 @@ Los cambios notables se documentan aquí. No se ha publicado una versión comerc
 - Pruebas en emuladores/dispositivos, consumo de batería/CPU y medición de arranque en frío.
 - Firma de release con la keystore del titular (Android) y Team ID/certificados (iOS), capturas reales localizadas y declaraciones de tienda contrastadas con el binario.
 - Funciones opcionales de HealthKit/Health Connect y Apple Watch/Wear OS, fuera del alcance implementado actual.
-

@@ -40,4 +40,3 @@ Registro de los agentes, sus entregas y las comprobaciones realizadas. Los nombr
 3. La versión actual no implementa notificación persistente Android, Live Activities/Dynamic Island, HealthKit/Health Connect, Apple Watch ni Wear OS. No activar permisos o capacidades de tienda por estas funciones.
 4. La carpeta de trabajo es Windows y no tiene Xcode. Se necesita un Mac para compilar/probar iOS y la firma requiere el Team ID y certificados del titular. El AAB de tienda necesita una clave de publicación del titular guardada fuera de Git.
 5. Nombre, política pública, declaraciones Apple/Google, capturas de tienda y firma se revisan contra el artefacto definitivo antes de enviar.
-

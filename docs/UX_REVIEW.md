@@ -63,4 +63,3 @@ Rondas y Cronómetro.
 
 Las comprobaciones automatizadas no reemplazan la inspección de contraste y
 lectura con VoiceOver/TalkBack ni la validación visual en varios tamaños reales.
-

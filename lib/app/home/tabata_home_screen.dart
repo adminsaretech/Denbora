@@ -251,4 +251,3 @@ class _TabataStepper extends StatelessWidget {
     );
   }
 }
-

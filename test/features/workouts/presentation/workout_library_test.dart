@@ -291,4 +291,3 @@ class MemoryWorkoutRepository extends WorkoutRepository {
   @override
   Future<List<WorkoutPlan>> sortByUpdatedAt() async => list();
 }
-

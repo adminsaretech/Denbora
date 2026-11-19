@@ -1,6 +1,3 @@
-Warning: truncated output (original token count: 7128)
-Total output lines: 968
-
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
@@ -431,7 +428,92 @@ abstract class AppLocalizations {
   /// **'Avisos sonoros'**
   String get settingsSound;
 
-  …628 tokens truncated…  ///
+  /// No description provided for @settingsVoice.
+  ///
+  /// In es, this message translates to:
+  /// **'Avisos de voz'**
+  String get settingsVoice;
+
+  /// No description provided for @settingsHaptics.
+  ///
+  /// In es, this message translates to:
+  /// **'Vibración'**
+  String get settingsHaptics;
+
+  /// No description provided for @settingsKeepScreenOn.
+  ///
+  /// In es, this message translates to:
+  /// **'Mantener pantalla encendida'**
+  String get settingsKeepScreenOn;
+
+  /// No description provided for @settingsBackgroundCues.
+  ///
+  /// In es, this message translates to:
+  /// **'Avisos con pantalla apagada'**
+  String get settingsBackgroundCues;
+
+  /// No description provided for @settingsBackgroundCuesNote.
+  ///
+  /// In es, this message translates to:
+  /// **'Aún no disponible. El tiempo se actualiza al volver a la app, pero no hay avisos mientras está suspendida.'**
+  String get settingsBackgroundCuesNote;
+
+  /// No description provided for @settingsPrivacy.
+  ///
+  /// In es, this message translates to:
+  /// **'Sin cuenta, anuncios ni compras.'**
+  String get settingsPrivacy;
+
+  /// No description provided for @workoutsTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Entrenamientos'**
+  String get workoutsTitle;
+
+  /// No description provided for @workoutsSearch.
+  ///
+  /// In es, this message translates to:
+  /// **'Buscar entrenamiento'**
+  String get workoutsSearch;
+
+  /// No description provided for @workoutsCreate.
+  ///
+  /// In es, this message translates to:
+  /// **'Crear entrenamiento'**
+  String get workoutsCreate;
+
+  /// No description provided for @workoutsEmpty.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay entrenamientos con ese nombre.'**
+  String get workoutsEmpty;
+
+  /// No description provided for @workoutsSortName.
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre'**
+  String get workoutsSortName;
+
+  /// No description provided for @workoutsSortRecent.
+  ///
+  /// In es, this message translates to:
+  /// **'Actualizados'**
+  String get workoutsSortRecent;
+
+  /// No description provided for @workoutsDuplicate.
+  ///
+  /// In es, this message translates to:
+  /// **'Duplicar'**
+  String get workoutsDuplicate;
+
+  /// No description provided for @workoutsEdit.
+  ///
+  /// In es, this message translates to:
+  /// **'Editar'**
+  String get workoutsEdit;
+
+  /// No description provided for @workoutsDelete.
+  ///
   /// In es, this message translates to:
   /// **'Eliminar'**
   String get workoutsDelete;
@@ -883,4 +965,3 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
     'that was used.',
   );
 }
-
