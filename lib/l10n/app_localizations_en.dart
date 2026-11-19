@@ -28,6 +28,85 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeHistory => 'History';
 
   @override
+  String get navTabata => 'Tabata';
+
+  @override
+  String get navWorkouts => 'Rounds';
+
+  @override
+  String get navStopwatch => 'Stopwatch';
+
+  @override
+  String get navMore => 'More';
+
+  @override
+  String get tabataQuickIntro =>
+      'Set your work, rest, and rounds before you start.';
+
+  @override
+  String get tabataWork => 'Work (s)';
+
+  @override
+  String get tabataRest => 'Rest (s)';
+
+  @override
+  String get tabataRounds => 'Rounds';
+
+  @override
+  String get tabataDuration => 'Estimated duration';
+
+  @override
+  String get tabataStart => 'Start Tabata';
+
+  @override
+  String get tabataHint =>
+      'Changes apply to this session. Save custom workouts in Rounds.';
+
+  @override
+  String get tabataDecreaseWork => 'Decrease work seconds';
+
+  @override
+  String get tabataIncreaseWork => 'Increase work seconds';
+
+  @override
+  String get tabataDecreaseRest => 'Decrease rest seconds';
+
+  @override
+  String get tabataIncreaseRest => 'Increase rest seconds';
+
+  @override
+  String get tabataDecreaseRounds => 'Decrease rounds';
+
+  @override
+  String get tabataIncreaseRounds => 'Increase rounds';
+
+  @override
+  String get stopwatchIntro => 'Time a free session without intervals.';
+
+  @override
+  String get stopwatchStart => 'Start stopwatch';
+
+  @override
+  String get stopwatchHint =>
+      'Your session is added to history when you finish.';
+
+  @override
+  String get moreTitle => 'More';
+
+  @override
+  String get moreLead => 'Your progress and preferences, all in one place.';
+
+  @override
+  String get moreHistory => 'Session history';
+
+  @override
+  String get moreSettings => 'Tempo settings';
+
+  @override
+  String get morePrivacy =>
+      'No account, ads, or purchases. Your activity stays on this device.';
+
+  @override
   String get onboardingTitle => 'Move at your pace';
 
   @override
@@ -381,3 +460,4 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get close => 'Close';
 }
+

@@ -1,8 +1,11 @@
+Warning: truncated output (original token count: 7128)
+Total output lines: 968
+
 import 'dart:async';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
-import 'package:material_ui/material_ui.dart' show GlobalMaterialLocalizations;
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:intl/intl.dart' as intl;
 
 import 'app_localizations_en.dart';
@@ -87,7 +90,9 @@ abstract class AppLocalizations {
   static const List<LocalizationsDelegate<dynamic>> localizationsDelegates =
       <LocalizationsDelegate<dynamic>>[
         delegate,
-        ...GlobalMaterialLocalizations.delegates,
+        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
       ];
 
   /// A list of this localizations delegate's supported locales.
@@ -131,6 +136,156 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Historial'**
   String get homeHistory;
+
+  /// No description provided for @navTabata.
+  ///
+  /// In es, this message translates to:
+  /// **'Tabata'**
+  String get navTabata;
+
+  /// No description provided for @navWorkouts.
+  ///
+  /// In es, this message translates to:
+  /// **'Rondas'**
+  String get navWorkouts;
+
+  /// No description provided for @navStopwatch.
+  ///
+  /// In es, this message translates to:
+  /// **'Cronómetro'**
+  String get navStopwatch;
+
+  /// No description provided for @navMore.
+  ///
+  /// In es, this message translates to:
+  /// **'Más'**
+  String get navMore;
+
+  /// No description provided for @tabataQuickIntro.
+  ///
+  /// In es, this message translates to:
+  /// **'Ajusta trabajo, descanso y rondas antes de empezar.'**
+  String get tabataQuickIntro;
+
+  /// No description provided for @tabataWork.
+  ///
+  /// In es, this message translates to:
+  /// **'Trabajo (s)'**
+  String get tabataWork;
+
+  /// No description provided for @tabataRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso (s)'**
+  String get tabataRest;
+
+  /// No description provided for @tabataRounds.
+  ///
+  /// In es, this message translates to:
+  /// **'Rondas'**
+  String get tabataRounds;
+
+  /// No description provided for @tabataDuration.
+  ///
+  /// In es, this message translates to:
+  /// **'Duración aproximada'**
+  String get tabataDuration;
+
+  /// No description provided for @tabataStart.
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar Tabata'**
+  String get tabataStart;
+
+  /// No description provided for @tabataHint.
+  ///
+  /// In es, this message translates to:
+  /// **'Estos cambios son para esta sesión. Guarda rutinas personalizadas en Rondas.'**
+  String get tabataHint;
+
+  /// No description provided for @tabataDecreaseWork.
+  ///
+  /// In es, this message translates to:
+  /// **'Reducir segundos de trabajo'**
+  String get tabataDecreaseWork;
+
+  /// No description provided for @tabataIncreaseWork.
+  ///
+  /// In es, this message translates to:
+  /// **'Aumentar segundos de trabajo'**
+  String get tabataIncreaseWork;
+
+  /// No description provided for @tabataDecreaseRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Reducir segundos de descanso'**
+  String get tabataDecreaseRest;
+
+  /// No description provided for @tabataIncreaseRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Aumentar segundos de descanso'**
+  String get tabataIncreaseRest;
+
+  /// No description provided for @tabataDecreaseRounds.
+  ///
+  /// In es, this message translates to:
+  /// **'Reducir rondas'**
+  String get tabataDecreaseRounds;
+
+  /// No description provided for @tabataIncreaseRounds.
+  ///
+  /// In es, this message translates to:
+  /// **'Aumentar rondas'**
+  String get tabataIncreaseRounds;
+
+  /// No description provided for @stopwatchIntro.
+  ///
+  /// In es, this message translates to:
+  /// **'Cronometra una sesión libre, sin intervalos.'**
+  String get stopwatchIntro;
+
+  /// No description provided for @stopwatchStart.
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar cronómetro'**
+  String get stopwatchStart;
+
+  /// No description provided for @stopwatchHint.
+  ///
+  /// In es, this message translates to:
+  /// **'La sesión queda registrada en tu historial al terminar.'**
+  String get stopwatchHint;
+
+  /// No description provided for @moreTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Más'**
+  String get moreTitle;
+
+  /// No description provided for @moreLead.
+  ///
+  /// In es, this message translates to:
+  /// **'Tu progreso y tus preferencias, en un solo lugar.'**
+  String get moreLead;
+
+  /// No description provided for @moreHistory.
+  ///
+  /// In es, this message translates to:
+  /// **'Historial de sesiones'**
+  String get moreHistory;
+
+  /// No description provided for @moreSettings.
+  ///
+  /// In es, this message translates to:
+  /// **'Ajustes de Tempo'**
+  String get moreSettings;
+
+  /// No description provided for @morePrivacy.
+  ///
+  /// In es, this message translates to:
+  /// **'Sin cuenta, anuncios ni compras. Tu actividad se guarda en este dispositivo.'**
+  String get morePrivacy;
 
   /// No description provided for @onboardingTitle.
   ///
@@ -276,92 +431,7 @@ abstract class AppLocalizations {
   /// **'Avisos sonoros'**
   String get settingsSound;
 
-  /// No description provided for @settingsVoice.
-  ///
-  /// In es, this message translates to:
-  /// **'Avisos de voz'**
-  String get settingsVoice;
-
-  /// No description provided for @settingsHaptics.
-  ///
-  /// In es, this message translates to:
-  /// **'Vibración'**
-  String get settingsHaptics;
-
-  /// No description provided for @settingsKeepScreenOn.
-  ///
-  /// In es, this message translates to:
-  /// **'Mantener pantalla encendida'**
-  String get settingsKeepScreenOn;
-
-  /// No description provided for @settingsBackgroundCues.
-  ///
-  /// In es, this message translates to:
-  /// **'Avisos con pantalla apagada'**
-  String get settingsBackgroundCues;
-
-  /// No description provided for @settingsBackgroundCuesNote.
-  ///
-  /// In es, this message translates to:
-  /// **'Aún no disponible. El tiempo se actualiza al volver a la app, pero no hay avisos mientras está suspendida.'**
-  String get settingsBackgroundCuesNote;
-
-  /// No description provided for @settingsPrivacy.
-  ///
-  /// In es, this message translates to:
-  /// **'Sin cuenta, anuncios ni compras.'**
-  String get settingsPrivacy;
-
-  /// No description provided for @workoutsTitle.
-  ///
-  /// In es, this message translates to:
-  /// **'Entrenamientos'**
-  String get workoutsTitle;
-
-  /// No description provided for @workoutsSearch.
-  ///
-  /// In es, this message translates to:
-  /// **'Buscar entrenamiento'**
-  String get workoutsSearch;
-
-  /// No description provided for @workoutsCreate.
-  ///
-  /// In es, this message translates to:
-  /// **'Crear entrenamiento'**
-  String get workoutsCreate;
-
-  /// No description provided for @workoutsEmpty.
-  ///
-  /// In es, this message translates to:
-  /// **'No hay entrenamientos con ese nombre.'**
-  String get workoutsEmpty;
-
-  /// No description provided for @workoutsSortName.
-  ///
-  /// In es, this message translates to:
-  /// **'Nombre'**
-  String get workoutsSortName;
-
-  /// No description provided for @workoutsSortRecent.
-  ///
-  /// In es, this message translates to:
-  /// **'Actualizados'**
-  String get workoutsSortRecent;
-
-  /// No description provided for @workoutsDuplicate.
-  ///
-  /// In es, this message translates to:
-  /// **'Duplicar'**
-  String get workoutsDuplicate;
-
-  /// No description provided for @workoutsEdit.
-  ///
-  /// In es, this message translates to:
-  /// **'Editar'**
-  String get workoutsEdit;
-
-  /// No description provided for @workoutsDelete.
-  ///
+  …628 tokens truncated…  ///
   /// In es, this message translates to:
   /// **'Eliminar'**
   String get workoutsDelete;
@@ -813,3 +883,4 @@ AppLocalizations lookupAppLocalizations(Locale locale) {
     'that was used.',
   );
 }
+

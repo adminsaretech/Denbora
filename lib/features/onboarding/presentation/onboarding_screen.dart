@@ -18,9 +18,9 @@ class OnboardingScreen extends ConsumerWidget {
     void complete() {
       final settings = ref.read(appSettingsProvider);
       unawaited(
-        ref.read(appSettingsProvider.notifier).updateSettings(
-              settings.copyWith(onboardingCompleted: true),
-            ),
+        ref
+            .read(appSettingsProvider.notifier)
+            .updateSettings(settings.copyWith(onboardingCompleted: true)),
       );
     }
 
@@ -29,78 +29,92 @@ class OnboardingScreen extends ConsumerWidget {
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 520),
-            child: ListView(
-              padding: const EdgeInsets.fromLTRB(24, 20, 24, 24),
+            child: Column(
               children: [
-                Align(
-                  alignment: Alignment.centerRight,
-                  child: TextButton(
-                    key: const ValueKey('onboarding-skip'),
-                    onPressed: complete,
-                    child: Text(strings.onboardingSkip),
+                Expanded(
+                  child: ListView(
+                    padding: const EdgeInsets.fromLTRB(24, 20, 24, 16),
+                    children: [
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: TextButton(
+                          key: const ValueKey('onboarding-skip'),
+                          onPressed: complete,
+                          child: Text(strings.onboardingSkip),
+                        ),
+                      ),
+                      const SizedBox(height: 8),
+                      Center(
+                        child: Semantics(
+                          image: true,
+                          label: strings.brandName,
+                          child: Image.asset(
+                            'assets/branding/tempo-app-icon-1024.png',
+                            width: 128,
+                            height: 128,
+                            fit: BoxFit.contain,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 26),
+                      Text(
+                        strings.onboardingTitle,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.headlineMedium
+                            ?.copyWith(
+                              fontWeight: FontWeight.w800,
+                              color: colors.onSurface,
+                            ),
+                      ),
+                      const SizedBox(height: 12),
+                      Text(
+                        strings.onboardingLead,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleMedium
+                            ?.copyWith(
+                              color: colors.onSurfaceVariant,
+                              height: 1.4,
+                            ),
+                      ),
+                      const SizedBox(height: 28),
+                      _Benefit(
+                        icon: Icons.cloud_off_rounded,
+                        title: strings.onboardingOffline,
+                        detail: strings.onboardingOfflineDetail,
+                      ),
+                      _Benefit(
+                        icon: Icons.tune_rounded,
+                        title: strings.onboardingPersonalize,
+                        detail: strings.onboardingPersonalizeDetail,
+                      ),
+                      _Benefit(
+                        icon: Icons.notifications_active_outlined,
+                        title: strings.onboardingCues,
+                        detail: strings.onboardingCuesDetail,
+                      ),
+                    ],
                   ),
                 ),
-                const SizedBox(height: 8),
-                Center(
-                  child: Semantics(
-                    image: true,
-                    label: strings.brandName,
-                    child: Image.asset(
-                      'assets/branding/tempo-app-icon-1024.png',
-                      width: 128,
-                      height: 128,
-                      fit: BoxFit.contain,
-                    ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(24, 12, 24, 12),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      FilledButton.icon(
+                        key: const ValueKey('onboarding-complete'),
+                        onPressed: complete,
+                        icon: const Icon(Icons.arrow_forward_rounded),
+                        label: Text(strings.onboardingContinue),
+                      ),
+                      const SizedBox(height: TempoTokens.controlGap),
+                      Text(
+                        strings.settingsPrivacy,
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.bodySmall
+                            ?.copyWith(color: colors.onSurfaceVariant),
+                      ),
+                    ],
                   ),
-                ),
-                const SizedBox(height: 26),
-                Text(
-                  strings.onboardingTitle,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                        fontWeight: FontWeight.w800,
-                        color: colors.onSurface,
-                      ),
-                ),
-                const SizedBox(height: 12),
-                Text(
-                  strings.onboardingLead,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                        color: colors.onSurfaceVariant,
-                        height: 1.4,
-                      ),
-                ),
-                const SizedBox(height: 28),
-                _Benefit(
-                  icon: Icons.cloud_off_rounded,
-                  title: strings.onboardingOffline,
-                  detail: strings.onboardingOfflineDetail,
-                ),
-                _Benefit(
-                  icon: Icons.tune_rounded,
-                  title: strings.onboardingPersonalize,
-                  detail: strings.onboardingPersonalizeDetail,
-                ),
-                _Benefit(
-                  icon: Icons.notifications_active_outlined,
-                  title: strings.onboardingCues,
-                  detail: strings.onboardingCuesDetail,
-                ),
-                const SizedBox(height: 24),
-                FilledButton.icon(
-                  key: const ValueKey('onboarding-complete'),
-                  onPressed: complete,
-                  icon: const Icon(Icons.arrow_forward_rounded),
-                  label: Text(strings.onboardingContinue),
-                ),
-                const SizedBox(height: TempoTokens.controlGap),
-                Text(
-                  strings.settingsPrivacy,
-                  textAlign: TextAlign.center,
-                  style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                        color: colors.onSurfaceVariant,
-                      ),
                 ),
               ],
             ),
@@ -149,9 +163,8 @@ class _Benefit extends StatelessWidget {
                 children: [
                   Text(
                     title,
-                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                          fontWeight: FontWeight.w700,
-                        ),
+                    style: Theme.of(context).textTheme.titleMedium
+                        ?.copyWith(fontWeight: FontWeight.w700),
                   ),
                   const SizedBox(height: 4),
                   Text(detail, style: Theme.of(context).textTheme.bodyMedium),
@@ -164,3 +177,4 @@ class _Benefit extends StatelessWidget {
     );
   }
 }
+

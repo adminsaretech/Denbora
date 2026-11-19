@@ -6,8 +6,32 @@ import 'package:tempo_workout_timer/features/settings/data/settings_repository.d
 import 'package:tempo_workout_timer/features/settings/domain/app_settings.dart';
 
 void main() {
-  testWidgets('first-run onboarding can be skipped without an account',
-      (tester) async {
+  testWidgets('keeps the main onboarding action visible on a compact screen', (
+    tester,
+  ) async {
+    await tester.binding.setSurfaceSize(const Size(360, 640));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          settingsRepositoryProvider.overrideWithValue(
+            SettingsRepository(MemorySettingsStorage()),
+          ),
+          initialAppSettingsProvider.overrideWithValue(const AppSettings()),
+        ],
+        child: const TempoApp(),
+      ),
+    );
+
+    final action = find.byKey(const ValueKey('onboarding-complete'));
+    expect(action, findsOneWidget);
+    expect(tester.getRect(action).bottom, lessThanOrEqualTo(640));
+  });
+
+  testWidgets('first-run onboarding can be skipped without an account', (
+    tester,
+  ) async {
     final storage = MemorySettingsStorage();
     await tester.pumpWidget(
       ProviderScope(
@@ -25,12 +49,13 @@ void main() {
     await tester.tap(find.byKey(const ValueKey('onboarding-skip')));
     await tester.pumpAndSettle();
 
-    expect(find.text('Entrenamientos'), findsNWidgets(2));
+    expect(find.text('Tabata'), findsNWidgets(2));
     expect(storage.values['onboardingCompleted'], isTrue);
   });
 
-  testWidgets('onboarding can be completed with the primary action',
-      (tester) async {
+  testWidgets('onboarding can be completed with the primary action', (
+    tester,
+  ) async {
     final storage = MemorySettingsStorage();
     await tester.pumpWidget(
       ProviderScope(
@@ -51,7 +76,7 @@ void main() {
     await tester.pumpAndSettle();
     await tester.tap(find.byKey(const ValueKey('onboarding-complete')));
     await tester.pumpAndSettle();
-    expect(find.text('Entrenamientos'), findsNWidgets(2));
+    expect(find.text('Tabata'), findsNWidgets(2));
     expect(storage.values['onboardingCompleted'], isTrue);
   });
 }
@@ -69,6 +94,6 @@ class MemorySettingsStorage implements SettingsStorage {
   Future<void> setBool(String key, bool value) async => values[key] = value;
 
   @override
-  Future<void> setString(String key, String value) async =>
-      values[key] = value;
+  Future<void> setString(String key, String value) async => values[key] = value;
 }
+

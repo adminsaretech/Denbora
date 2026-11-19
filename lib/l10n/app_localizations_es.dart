@@ -28,6 +28,85 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeHistory => 'Historial';
 
   @override
+  String get navTabata => 'Tabata';
+
+  @override
+  String get navWorkouts => 'Rondas';
+
+  @override
+  String get navStopwatch => 'Cronómetro';
+
+  @override
+  String get navMore => 'Más';
+
+  @override
+  String get tabataQuickIntro =>
+      'Ajusta trabajo, descanso y rondas antes de empezar.';
+
+  @override
+  String get tabataWork => 'Trabajo (s)';
+
+  @override
+  String get tabataRest => 'Descanso (s)';
+
+  @override
+  String get tabataRounds => 'Rondas';
+
+  @override
+  String get tabataDuration => 'Duración aproximada';
+
+  @override
+  String get tabataStart => 'Iniciar Tabata';
+
+  @override
+  String get tabataHint =>
+      'Estos cambios son para esta sesión. Guarda rutinas personalizadas en Rondas.';
+
+  @override
+  String get tabataDecreaseWork => 'Reducir segundos de trabajo';
+
+  @override
+  String get tabataIncreaseWork => 'Aumentar segundos de trabajo';
+
+  @override
+  String get tabataDecreaseRest => 'Reducir segundos de descanso';
+
+  @override
+  String get tabataIncreaseRest => 'Aumentar segundos de descanso';
+
+  @override
+  String get tabataDecreaseRounds => 'Reducir rondas';
+
+  @override
+  String get tabataIncreaseRounds => 'Aumentar rondas';
+
+  @override
+  String get stopwatchIntro => 'Cronometra una sesión libre, sin intervalos.';
+
+  @override
+  String get stopwatchStart => 'Iniciar cronómetro';
+
+  @override
+  String get stopwatchHint =>
+      'La sesión queda registrada en tu historial al terminar.';
+
+  @override
+  String get moreTitle => 'Más';
+
+  @override
+  String get moreLead => 'Tu progreso y tus preferencias, en un solo lugar.';
+
+  @override
+  String get moreHistory => 'Historial de sesiones';
+
+  @override
+  String get moreSettings => 'Ajustes de Tempo';
+
+  @override
+  String get morePrivacy =>
+      'Sin cuenta, anuncios ni compras. Tu actividad se guarda en este dispositivo.';
+
+  @override
   String get onboardingTitle => 'Tu ritmo, a tu manera';
 
   @override
@@ -384,3 +463,4 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get close => 'Cerrar';
 }
+

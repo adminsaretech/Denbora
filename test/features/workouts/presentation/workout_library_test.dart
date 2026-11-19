@@ -79,6 +79,34 @@ void main() {
     expect(find.text('HIIT 20/10'), findsNothing);
   });
 
+  testWidgets(
+    'opens the workout library tab without a localization exception',
+    (tester) async {
+      await tester.pumpWidget(
+        ProviderScope(
+          overrides: [
+            workoutRepositoryProvider.overrideWithValue(repository),
+            settingsRepositoryProvider.overrideWithValue(
+              SettingsRepository(MemorySettingsStorage()),
+            ),
+            initialAppSettingsProvider.overrideWithValue(
+              const AppSettings(onboardingCompleted: true),
+            ),
+          ],
+          child: const TempoApp(),
+        ),
+      );
+      await tester.pumpAndSettle();
+
+      await tester.tap(find.byKey(const ValueKey('nav-workouts')));
+      await tester.pumpAndSettle();
+
+      expect(find.byKey(const ValueKey('workout-search')), findsOneWidget);
+      expect(find.text('HIIT 20/10'), findsOneWidget);
+      expect(tester.takeException(), isNull);
+    },
+  );
+
   testWidgets('creates a custom interval workout', (tester) async {
     await pumpLibrary(tester);
     await tester.tap(find.byKey(const ValueKey('create-workout')));
@@ -263,3 +291,4 @@ class MemoryWorkoutRepository extends WorkoutRepository {
   @override
   Future<List<WorkoutPlan>> sortByUpdatedAt() async => list();
 }
+

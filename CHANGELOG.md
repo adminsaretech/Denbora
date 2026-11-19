@@ -4,6 +4,19 @@ Los cambios notables se documentan aquí. No se ha publicado una versión comerc
 
 ## Unreleased
 
+### Interfaz y navegación
+
+- Añadida navegación inferior con Tabata, Rondas, Cronómetro y Más.
+- Tabata permite ajustar trabajo, descanso y rondas con controles grandes y
+  muestra la duración aproximada antes de iniciar.
+- Cronómetro tiene un acceso directo al modo libre; Más agrupa el historial y
+  los ajustes.
+- El botón principal del onboarding permanece visible en pantallas compactas.
+- Los delegados Material compatibles con `material_ui` se configuran fuera del
+  código generado para evitar el error de `MaterialLocalizations`.
+- Consulta el análisis de capturas y las decisiones de navegación en
+  [docs/UX_REVIEW.md](docs/UX_REVIEW.md).
+
 ### Añadido
 
 - Flutter/Riverpod para iOS y Android con localización española e inglesa, onboarding sin cuenta y ajustes locales.
@@ -30,3 +43,4 @@ Los cambios notables se documentan aquí. No se ha publicado una versión comerc
 - Pruebas en emuladores/dispositivos, consumo de batería/CPU y medición de arranque en frío.
 - Firma de release con la keystore del titular (Android) y Team ID/certificados (iOS), capturas reales localizadas y declaraciones de tienda contrastadas con el binario.
 - Funciones opcionales de HealthKit/Health Connect y Apple Watch/Wear OS, fuera del alcance implementado actual.
+
