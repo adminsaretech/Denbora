@@ -3,6 +3,7 @@
 **Fecha:** 19 de noviembre de 2026  
 **Repositorio:** https://github.com/adminsaretech/Denbora  
 **Rama de trabajo:** `codex/tempo-v1`  
+**Commit de implementación en GitHub:** `f317a79`<br>
 **Estado:** código y builds Android disponibles; publicación aún no lista.
 
 ## Cobertura funcional
