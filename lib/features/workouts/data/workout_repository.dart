@@ -12,8 +12,8 @@ class WorkoutRepository {
     this._box, {
     String Function()? createId,
     DateTime Function()? now,
-  })  : _createId = createId ?? _randomId,
-        _now = now ?? DateTime.now;
+  }) : _createId = createId ?? _randomId,
+       _now = now ?? DateTime.now;
 
   final Box<String> _box;
   final String Function() _createId;
@@ -44,20 +44,20 @@ class WorkoutRepository {
         'Workout plan is invalid.',
       );
     }
-    final saved = plan.copyWith(
-      isBuiltIn: false,
-      updatedAt: _now().toUtc(),
-    );
+    final saved = plan.copyWith(isBuiltIn: false, updatedAt: _now().toUtc());
     await _box.put(saved.id, _encodePlan(saved));
   }
 
-  Future<WorkoutPlan> duplicate(String id) async {
+  Future<WorkoutPlan> duplicate(
+    String id, {
+    String copySuffix = '(copy)',
+  }) async {
     final source = await getById(id);
     if (source == null) throw ArgumentError.value(id, 'id', 'Unknown workout.');
     final newId = _uniqueId();
     final copy = source.copyWith(
       id: newId,
-      name: '${source.name} (copia)',
+      name: '${source.name} $copySuffix',
       createdAt: _now().toUtc(),
       updatedAt: _now().toUtc(),
       clearLastUsedAt: true,
@@ -85,8 +85,10 @@ class WorkoutRepository {
 
   Future<List<WorkoutPlan>> sortByName() async {
     final plans = (await list()).toList();
-    plans.sort((left, right) =>
-        left.name.toLowerCase().compareTo(right.name.toLowerCase()));
+    plans.sort(
+      (left, right) =>
+          left.name.toLowerCase().compareTo(right.name.toLowerCase()),
+    );
     return List<WorkoutPlan>.unmodifiable(plans);
   }
 
@@ -104,6 +106,8 @@ class WorkoutRepository {
     return id;
   }
 
+  String createId() => _uniqueId();
+
   WorkoutPlan? _builtInById(String id) {
     for (final template in WorkoutTemplates.all) {
       if (template.id == id) return template;
@@ -113,34 +117,37 @@ class WorkoutRepository {
 
   static String _randomId() {
     final random = Random.secure();
-    return List<int>.generate(16, (_) => random.nextInt(256))
-        .map((byte) => byte.toRadixString(16).padLeft(2, '0'))
-        .join();
+    return List<int>.generate(
+      16,
+      (_) => random.nextInt(256),
+    ).map((byte) => byte.toRadixString(16).padLeft(2, '0')).join();
   }
 
   static String _encodePlan(WorkoutPlan plan) => jsonEncode({
-        'id': plan.id,
-        'name': plan.name,
-        'mode': plan.mode.name,
-        'blocks': plan.blocks
-            .map((block) => {
-                  'id': block.id,
-                  'name': block.name,
-                  'workSeconds': block.workSeconds,
-                  'restAfterSeconds': block.restAfterSeconds,
-                })
-            .toList(growable: false),
-        'preparationSeconds': plan.preparationSeconds,
-        'rounds': plan.rounds,
-        'sets': plan.sets,
-        'restBetweenRoundsSeconds': plan.restBetweenRoundsSeconds,
-        'restBetweenSetsSeconds': plan.restBetweenSetsSeconds,
-        'cooldownSeconds': plan.cooldownSeconds,
-        'createdAt': plan.createdAt.toIso8601String(),
-        'updatedAt': plan.updatedAt.toIso8601String(),
-        'lastUsedAt': plan.lastUsedAt?.toIso8601String(),
-        'isBuiltIn': false,
-      });
+    'id': plan.id,
+    'name': plan.name,
+    'mode': plan.mode.name,
+    'blocks': plan.blocks
+        .map(
+          (block) => {
+            'id': block.id,
+            'name': block.name,
+            'workSeconds': block.workSeconds,
+            'restAfterSeconds': block.restAfterSeconds,
+          },
+        )
+        .toList(growable: false),
+    'preparationSeconds': plan.preparationSeconds,
+    'rounds': plan.rounds,
+    'sets': plan.sets,
+    'restBetweenRoundsSeconds': plan.restBetweenRoundsSeconds,
+    'restBetweenSetsSeconds': plan.restBetweenSetsSeconds,
+    'cooldownSeconds': plan.cooldownSeconds,
+    'createdAt': plan.createdAt.toIso8601String(),
+    'updatedAt': plan.updatedAt.toIso8601String(),
+    'lastUsedAt': plan.lastUsedAt?.toIso8601String(),
+    'isBuiltIn': false,
+  });
 
   static WorkoutPlan _decodePlan(String value) {
     final json = jsonDecode(value) as Map<String, dynamic>;

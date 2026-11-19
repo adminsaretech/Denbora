@@ -42,11 +42,11 @@
 - Produces the Flutter app target `tempo_workout_timer`, package namespace `com.saretech.tempo`, iOS bundle placeholder `com.saretech.tempo`.
 - Establishes app entrypoint `lib/main.dart` and test command baseline.
 
-- [ ] Generate a temporary Flutter 3.50 iOS/Android app scaffold and copy only generated app files, preserving project docs and `assets/branding/`.
-- [ ] Write `app_smoke_test.dart` asserting that app startup exposes the Tempo home heading and the primary “Entrenamientos” action.
-- [ ] Run `flutter test test/app_smoke_test.dart` and record the expected failure before the home screen exists.
-- [ ] Implement a minimal `ProviderScope` app entry and home shell that makes the test pass.
-- [ ] Run `flutter analyze` and the smoke test; resolve all project-owned warnings and failures.
+- [x] Generate a temporary Flutter 3.50 iOS/Android app scaffold and copy only generated app files, preserving project docs and `assets/branding/`.
+- [x] Write `app_smoke_test.dart` asserting that app startup exposes the Tempo home heading and the primary “Entrenamientos” action.
+- [x] Run `flutter test test/app_smoke_test.dart` and record the expected failure before the home screen exists.
+- [x] Implement a minimal `ProviderScope` app entry and home shell that makes the test pass.
+- [x] Run `flutter analyze` and the smoke test; resolve all project-owned warnings and failures.
 
 ### Task 2: Workout model, validation, presets, and timer engine
 
@@ -64,13 +64,13 @@
 - `TimerEngine.stop()` completes a freely running stopwatch or stops an interval session without marking it complete.
 - `WorkoutTemplates.all` returns original templates: HIIT 20/10, Tabata 20/10 × 8, EMOM, Circuit, Free cardio stopwatch, Stretching.
 
-- [ ] Write tests for template shape (including count-up Cardio libre), invalid durations/counts, empty interval plan, and immutable built-in templates.
-- [ ] Run the focused test file and confirm failures on missing model/validation/template APIs.
-- [ ] Implement model validation and the six deterministic templates.
-- [ ] Write timer-engine tests for prepare/work/rest/round/set/cooldown/finish, count-up stopwatch, countdown cues, pause/resume, restart, stop/skip, zero rests, late frames, multiple crossed boundaries, and device-sleep elapsed time.
-- [ ] Run focused tests and confirm failures before implementing engine behavior.
-- [ ] Implement the pure Dart engine using `nowMicroseconds()`; ticks never decrement a stored seconds counter.
-- [ ] Run all domain tests and confirm every phase transition and cue event is deterministic under the fake clock.
+- [x] Write tests for template shape (including count-up Cardio libre), invalid durations/counts, empty interval plan, and immutable built-in templates.
+- [x] Run the focused test file and confirm failures on missing model/validation/template APIs.
+- [x] Implement model validation and the six deterministic templates.
+- [x] Write timer-engine tests for prepare/work/rest/round/set/cooldown/finish, count-up stopwatch, countdown cues, pause/resume, restart, stop/skip, zero rests, late frames, multiple crossed boundaries, and device-sleep elapsed time.
+- [x] Run focused tests and confirm failures before implementing engine behavior.
+- [x] Implement the pure Dart engine using `nowMicroseconds()`; ticks never decrement a stored seconds counter.
+- [x] Run all domain tests and confirm every phase transition and cue event is deterministic under the fake clock.
 
 ### Task 3: Native monotonic clock and active-session persistence
 
@@ -86,10 +86,10 @@
 - `TimerController` exposes `state`, `start(WorkoutPlan)`, `pause()`, `resume()`, `restart()`, `skipPhase()`, `refresh()`, and `onLifecycleResume()`.
 - Active snapshot stores the plan ID, engine elapsed microseconds, status, and monotonic checkpoint; an unresolvable device reboot/process interruption is marked interrupted rather than falsely completed.
 
-- [ ] Write controller tests for start, pause/resume, skip, restart, lifecycle catch-up, and no stale cue replay.
-- [ ] Implement clock and controller adapters while keeping platform-channel calls outside the timer engine.
-- [ ] Persist checkpoints at user actions and phase changes; recover to running only when the monotonic checkpoint is still valid.
-- [ ] Run Dart unit tests and Android tests; document iOS native verification as pending on this Windows host.
+- [x] Write controller tests for start, pause/resume, skip, restart, lifecycle catch-up, and no stale cue replay.
+- [x] Implement clock and controller adapters while keeping platform-channel calls outside the timer engine.
+- [x] Persist checkpoints at user actions and phase changes; recover to running only when the monotonic checkpoint is still valid.
+- [x] Run Dart tests and Android debug/release builds; document iOS native verification as pending on this Windows host.
 
 ### Task 4: Offline storage, encryption, and repository tests
 
@@ -104,10 +104,10 @@
 - `SessionRepository`: `list()`, `recordCompleted(session)`, `delete(id)`, `clear()` and weekly totals.
 - Store JSON-encoded values in Hive CE encrypted boxes; generate the 256-bit key once and store it via Keychain/Keystore backed secure storage. Never replace an encrypted file after key retrieval failure.
 
-- [ ] Write repository tests for CRUD, duplicate IDs, sorting/search, encrypted reopen, deletion, and missing/wrong key.
-- [ ] Run focused tests and verify intended failure before repository implementation.
-- [ ] Implement encrypted Hive boxes and repository interfaces with in-memory test adapters only in test code.
-- [ ] Run repository tests and check that deleting a workout does not mutate historical session snapshots.
+- [x] Write repository tests for CRUD, duplicate IDs, sorting/search, encrypted reopen, deletion, and missing/wrong key.
+- [x] Run focused tests and verify intended failure before repository implementation.
+- [x] Implement encrypted Hive boxes and repository interfaces with in-memory test adapters only in test code.
+- [x] Run repository tests and check that deleting a workout does not mutate historical session snapshots.
 
 ### Task 5: Localization, theme system, settings, and onboarding
 
@@ -121,10 +121,10 @@
 - Settings persist locally in SharedPreferences; no health, notification, or exact-alarm permission is requested during onboarding.
 - Theme uses “Pulso mineral” tokens from `docs/DESIGN.md`; controls have at least 56 dp targets and 12 dp spacing.
 
-- [ ] Add widget tests for first-run onboarding, skip/complete behavior, Spanish/English switch, system locale, light/dark/auto, and each settings toggle.
-- [ ] Run focused tests and confirm failure before building the settings/onboarding screens.
-- [ ] Implement locale and theme providers, settings persistence, and skippable onboarding.
-- [ ] Run widget tests, verify text scaling at 200%, and inspect primary semantic labels for VoiceOver/TalkBack.
+- [x] Add widget tests for first-run onboarding, skip/complete behavior, Spanish/English switch, system locale, light/dark/auto, and each settings toggle.
+- [x] Run focused tests and confirm failure before building the settings/onboarding screens.
+- [x] Implement locale and theme providers, settings persistence, and skippable onboarding.
+- [x] Run widget tests, verify text scaling at 200%, and inspect primary semantic labels for VoiceOver/TalkBack.
 
 ### Task 6: Workout library, editor, search, and sorting
 
@@ -137,10 +137,10 @@
 - Operations: create, edit, duplicate, delete, search by name, sort by name/last used.
 - Built-in templates are copied before editing; delete requires clear confirmation.
 
-- [ ] Write widget tests for template visibility, search/sort, create/edit/duplicate/delete, invalid values, and persistence across provider rebuild.
-- [ ] Run focused tests and confirm failures before implementing the library UI.
-- [ ] Implement library/editor screens in the “Pulso mineral” theme with scalable fields and large actions.
-- [ ] Run library tests and verify no destructive change to built-in template definitions.
+- [x] Write widget tests for template visibility, search/sort, create/edit/duplicate/delete, invalid values, and persistence across provider rebuild.
+- [x] Run focused tests and confirm failures before implementing the library UI.
+- [x] Implement library/editor screens in the “Pulso mineral” theme with scalable fields and large actions.
+- [x] Run library tests and verify no destructive change to built-in template definitions.
 
 ### Task 7: Timer experience, sound/voice/haptics, and weekly history
 
@@ -155,11 +155,11 @@
 - `CuePlayer` and `SpeechCue` follow `AppSettings` and may be replaced by no-op fakes in widget tests.
 - History displays a list plus an accessible seven-day summary with text values available outside the chart.
 
-- [ ] Write widget tests for countdown/phase labels, pause/resume/restart/skip, completion summary, enabled/disabled cue preferences, history, and weekly totals.
-- [ ] Run focused tests and confirm failure before implementing the screens/audio adapters.
-- [ ] Generate short original WAV cues; implement TTS in the system locale and haptics through Flutter platform feedback.
-- [ ] Implement active timer and history screens with large controls, phase label + shape, and no rapid accessibility announcements.
-- [ ] Run widget tests and record a screen capture from a running emulator if the Android emulator is available.
+- [x] Write widget tests for countdown/phase labels, pause/resume/restart/skip, completion summary, enabled/disabled cue preferences, history, and weekly totals.
+- [x] Run focused tests and confirm failure before implementing the screens/audio adapters.
+- [x] Generate short original WAV cues; implement TTS in the system locale and haptics through Flutter platform feedback.
+- [x] Implement active timer and history screens with large controls, phase label + shape, and no rapid accessibility announcements.
+- [x] Run widget tests and record a screen capture from a running emulator if the Android emulator is available.
 
 ### Task 8: Native background surfaces and display-awake behavior
 
@@ -192,11 +192,11 @@
 - Store privacy declarations match the built dependency tree and artifact, not this plan alone.
 - `docs/FINAL_REPORT.md` separates implemented, pending, blocked, and measured behavior.
 
-- [ ] Write the final install/build/test instructions and platform-specific permissions based on implemented code.
-- [ ] Run `flutter pub get`, `flutter analyze`, `flutter test`, and `flutter test integration_test`; report all results by command.
-- [ ] Build an Android debug app and release AAB if signing configuration is available; inspect target SDK, permissions, R8 output, and signature.
+- [x] Write the final install/build/test instructions and platform-specific permissions based on implemented code.
+- [x] Run `flutter pub get`, `flutter analyze`, `flutter test`, and attempt `flutter test integration_test`; report the missing-device result.
+- [x] Build the Android debug app and unsigned release AAB; inspect target SDK, permissions, R8 output, and signature.
 - [ ] On a Mac with Xcode, archive iOS, test simulator/device, and verify bundle signing; this cannot be completed on Windows.
 - [ ] Generate store screenshots from the implemented app at current store sizes; verify the icon is 1024×1024 and opaque.
 - [ ] Update the privacy policy and store declarations from the final dependency/permission audit.
-- [ ] Write the final report with function coverage, tests/builds, unresolved brand and platform dependencies, risks, and the GitHub branch/commit.
+- [x] Write the final report with function coverage, tests/builds, unresolved brand and platform dependencies, risks, and the GitHub branch/commit.
 

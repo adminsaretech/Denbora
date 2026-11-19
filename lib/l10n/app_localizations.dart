@@ -303,7 +303,7 @@ abstract class AppLocalizations {
   /// No description provided for @settingsBackgroundCuesNote.
   ///
   /// In es, this message translates to:
-  /// **'Algunos avisos dependen de los permisos de notificación del dispositivo.'**
+  /// **'Aún no disponible. El tiempo se actualiza al volver a la app, pero no hay avisos mientras está suspendida.'**
   String get settingsBackgroundCuesNote;
 
   /// No description provided for @settingsPrivacy.
@@ -311,6 +311,461 @@ abstract class AppLocalizations {
   /// In es, this message translates to:
   /// **'Sin cuenta, anuncios ni compras.'**
   String get settingsPrivacy;
+
+  /// No description provided for @workoutsTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Entrenamientos'**
+  String get workoutsTitle;
+
+  /// No description provided for @workoutsSearch.
+  ///
+  /// In es, this message translates to:
+  /// **'Buscar entrenamiento'**
+  String get workoutsSearch;
+
+  /// No description provided for @workoutsCreate.
+  ///
+  /// In es, this message translates to:
+  /// **'Crear entrenamiento'**
+  String get workoutsCreate;
+
+  /// No description provided for @workoutsEmpty.
+  ///
+  /// In es, this message translates to:
+  /// **'No hay entrenamientos con ese nombre.'**
+  String get workoutsEmpty;
+
+  /// No description provided for @workoutsSortName.
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre'**
+  String get workoutsSortName;
+
+  /// No description provided for @workoutsSortRecent.
+  ///
+  /// In es, this message translates to:
+  /// **'Actualizados'**
+  String get workoutsSortRecent;
+
+  /// No description provided for @workoutsDuplicate.
+  ///
+  /// In es, this message translates to:
+  /// **'Duplicar'**
+  String get workoutsDuplicate;
+
+  /// No description provided for @workoutsEdit.
+  ///
+  /// In es, this message translates to:
+  /// **'Editar'**
+  String get workoutsEdit;
+
+  /// No description provided for @workoutsDelete.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar'**
+  String get workoutsDelete;
+
+  /// No description provided for @workoutsCancel.
+  ///
+  /// In es, this message translates to:
+  /// **'Cancelar'**
+  String get workoutsCancel;
+
+  /// No description provided for @workoutsDeleteTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Eliminar entrenamiento'**
+  String get workoutsDeleteTitle;
+
+  /// No description provided for @workoutsDeleteMessage.
+  ///
+  /// In es, this message translates to:
+  /// **'Se eliminará este entrenamiento. Las sesiones guardadas en el historial se conservan.'**
+  String get workoutsDeleteMessage;
+
+  /// No description provided for @workoutsCreateTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Nuevo entrenamiento'**
+  String get workoutsCreateTitle;
+
+  /// No description provided for @workoutsEditTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Editar entrenamiento'**
+  String get workoutsEditTitle;
+
+  /// No description provided for @workoutName.
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre'**
+  String get workoutName;
+
+  /// No description provided for @workoutMode.
+  ///
+  /// In es, this message translates to:
+  /// **'Tipo de temporizador'**
+  String get workoutMode;
+
+  /// No description provided for @workoutIntervals.
+  ///
+  /// In es, this message translates to:
+  /// **'Intervalos'**
+  String get workoutIntervals;
+
+  /// No description provided for @workoutStopwatch.
+  ///
+  /// In es, this message translates to:
+  /// **'Cronómetro'**
+  String get workoutStopwatch;
+
+  /// No description provided for @workoutPreparation.
+  ///
+  /// In es, this message translates to:
+  /// **'Cuenta atrás inicial (s)'**
+  String get workoutPreparation;
+
+  /// No description provided for @workoutBlocks.
+  ///
+  /// In es, this message translates to:
+  /// **'Bloques'**
+  String get workoutBlocks;
+
+  /// No description provided for @workoutAddBlock.
+  ///
+  /// In es, this message translates to:
+  /// **'Añadir bloque'**
+  String get workoutAddBlock;
+
+  /// No description provided for @workoutBlockName.
+  ///
+  /// In es, this message translates to:
+  /// **'Nombre del bloque'**
+  String get workoutBlockName;
+
+  /// No description provided for @workoutWorkSeconds.
+  ///
+  /// In es, this message translates to:
+  /// **'Trabajo (s)'**
+  String get workoutWorkSeconds;
+
+  /// No description provided for @workoutRestSeconds.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso (s)'**
+  String get workoutRestSeconds;
+
+  /// No description provided for @workoutRounds.
+  ///
+  /// In es, this message translates to:
+  /// **'Rondas'**
+  String get workoutRounds;
+
+  /// No description provided for @workoutSets.
+  ///
+  /// In es, this message translates to:
+  /// **'Series'**
+  String get workoutSets;
+
+  /// No description provided for @workoutRoundRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso entre rondas (s)'**
+  String get workoutRoundRest;
+
+  /// No description provided for @workoutSetRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso entre series (s)'**
+  String get workoutSetRest;
+
+  /// No description provided for @workoutCooldown.
+  ///
+  /// In es, this message translates to:
+  /// **'Vuelta a la calma (s)'**
+  String get workoutCooldown;
+
+  /// No description provided for @workoutSave.
+  ///
+  /// In es, this message translates to:
+  /// **'Guardar entrenamiento'**
+  String get workoutSave;
+
+  /// No description provided for @workoutNameRequired.
+  ///
+  /// In es, this message translates to:
+  /// **'Escribe un nombre para el entrenamiento.'**
+  String get workoutNameRequired;
+
+  /// No description provided for @workoutAtLeastOneBlock.
+  ///
+  /// In es, this message translates to:
+  /// **'Añade al menos un bloque de trabajo.'**
+  String get workoutAtLeastOneBlock;
+
+  /// No description provided for @workoutInvalidNumber.
+  ///
+  /// In es, this message translates to:
+  /// **'Revisa los tiempos y cantidades indicados.'**
+  String get workoutInvalidNumber;
+
+  /// No description provided for @workoutIntervalSummary.
+  ///
+  /// In es, this message translates to:
+  /// **'{rounds} rondas · {sets} series · {blocks} bloques · {duration}'**
+  String workoutIntervalSummary(
+    int rounds,
+    int sets,
+    int blocks,
+    String duration,
+  );
+
+  /// No description provided for @workoutStopwatchSummary.
+  ///
+  /// In es, this message translates to:
+  /// **'Cronómetro libre'**
+  String get workoutStopwatchSummary;
+
+  /// No description provided for @workoutBuiltIn.
+  ///
+  /// In es, this message translates to:
+  /// **'Plantilla'**
+  String get workoutBuiltIn;
+
+  /// No description provided for @workoutStart.
+  ///
+  /// In es, this message translates to:
+  /// **'Iniciar entrenamiento'**
+  String get workoutStart;
+
+  /// No description provided for @timerStart.
+  ///
+  /// In es, this message translates to:
+  /// **'Empezar'**
+  String get timerStart;
+
+  /// No description provided for @timerPause.
+  ///
+  /// In es, this message translates to:
+  /// **'Pausar'**
+  String get timerPause;
+
+  /// No description provided for @timerResume.
+  ///
+  /// In es, this message translates to:
+  /// **'Reanudar'**
+  String get timerResume;
+
+  /// No description provided for @timerRestart.
+  ///
+  /// In es, this message translates to:
+  /// **'Reiniciar desde el principio'**
+  String get timerRestart;
+
+  /// No description provided for @timerSkip.
+  ///
+  /// In es, this message translates to:
+  /// **'Saltar fase'**
+  String get timerSkip;
+
+  /// No description provided for @timerStop.
+  ///
+  /// In es, this message translates to:
+  /// **'Terminar sesión'**
+  String get timerStop;
+
+  /// No description provided for @timerPaused.
+  ///
+  /// In es, this message translates to:
+  /// **'En pausa'**
+  String get timerPaused;
+
+  /// No description provided for @timerCompleted.
+  ///
+  /// In es, this message translates to:
+  /// **'¡Sesión completada!'**
+  String get timerCompleted;
+
+  /// No description provided for @timerStartError.
+  ///
+  /// In es, this message translates to:
+  /// **'No se pudo iniciar el reloj del dispositivo. Inténtalo de nuevo.'**
+  String get timerStartError;
+
+  /// No description provided for @timerPhasePreparation.
+  ///
+  /// In es, this message translates to:
+  /// **'Preparación'**
+  String get timerPhasePreparation;
+
+  /// No description provided for @timerPhaseWork.
+  ///
+  /// In es, this message translates to:
+  /// **'Trabajo'**
+  String get timerPhaseWork;
+
+  /// No description provided for @timerPhaseRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso'**
+  String get timerPhaseRest;
+
+  /// No description provided for @timerPhaseRoundRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso entre rondas'**
+  String get timerPhaseRoundRest;
+
+  /// No description provided for @timerPhaseSetRest.
+  ///
+  /// In es, this message translates to:
+  /// **'Descanso entre series'**
+  String get timerPhaseSetRest;
+
+  /// No description provided for @timerPhaseCooldown.
+  ///
+  /// In es, this message translates to:
+  /// **'Vuelta a la calma'**
+  String get timerPhaseCooldown;
+
+  /// No description provided for @timerPhaseStopwatch.
+  ///
+  /// In es, this message translates to:
+  /// **'Cronómetro'**
+  String get timerPhaseStopwatch;
+
+  /// No description provided for @timerPhaseFinished.
+  ///
+  /// In es, this message translates to:
+  /// **'Terminado'**
+  String get timerPhaseFinished;
+
+  /// No description provided for @timerRoundLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Ronda {current} de {total}'**
+  String timerRoundLabel(int current, int total);
+
+  /// No description provided for @timerSetLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Serie {current} de {total}'**
+  String timerSetLabel(int current, int total);
+
+  /// No description provided for @timerElapsedLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'Tiempo transcurrido: {time}'**
+  String timerElapsedLabel(String time);
+
+  /// No description provided for @historyTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Historial'**
+  String get historyTitle;
+
+  /// No description provided for @historyLoadError.
+  ///
+  /// In es, this message translates to:
+  /// **'No se pudo cargar el historial.'**
+  String get historyLoadError;
+
+  /// No description provided for @historySessions.
+  ///
+  /// In es, this message translates to:
+  /// **'Sesiones'**
+  String get historySessions;
+
+  /// No description provided for @historyEmpty.
+  ///
+  /// In es, this message translates to:
+  /// **'Completa tu primer entrenamiento para ver aquí el historial.'**
+  String get historyEmpty;
+
+  /// No description provided for @historyWeekTitle.
+  ///
+  /// In es, this message translates to:
+  /// **'Últimos 7 días'**
+  String get historyWeekTitle;
+
+  /// No description provided for @historyWeekSummary.
+  ///
+  /// In es, this message translates to:
+  /// **'{count} sesiones · {duration}'**
+  String historyWeekSummary(int count, String duration);
+
+  /// No description provided for @historyChartLabel.
+  ///
+  /// In es, this message translates to:
+  /// **'En los últimos 7 días: {count} sesiones y {minutes} minutos de actividad.'**
+  String historyChartLabel(int count, int minutes);
+
+  /// No description provided for @historySessionSummary.
+  ///
+  /// In es, this message translates to:
+  /// **'{duration} · {rounds} rondas completadas'**
+  String historySessionSummary(String duration, int rounds);
+
+  /// No description provided for @historyStopwatchSummary.
+  ///
+  /// In es, this message translates to:
+  /// **'{duration} · cronómetro libre'**
+  String historyStopwatchSummary(String duration);
+
+  /// No description provided for @historyDurationHours.
+  ///
+  /// In es, this message translates to:
+  /// **'{hours} h {minutes} min'**
+  String historyDurationHours(int hours, int minutes);
+
+  /// No description provided for @workoutCircuit.
+  ///
+  /// In es, this message translates to:
+  /// **'Circuito'**
+  String get workoutCircuit;
+
+  /// No description provided for @workoutFreeCardio.
+  ///
+  /// In es, this message translates to:
+  /// **'Cardio libre'**
+  String get workoutFreeCardio;
+
+  /// No description provided for @workoutStretching.
+  ///
+  /// In es, this message translates to:
+  /// **'Estiramientos'**
+  String get workoutStretching;
+
+  /// No description provided for @workoutActions.
+  ///
+  /// In es, this message translates to:
+  /// **'Acciones del entrenamiento'**
+  String get workoutActions;
+
+  /// No description provided for @workoutDuplicated.
+  ///
+  /// In es, this message translates to:
+  /// **'Entrenamiento duplicado.'**
+  String get workoutDuplicated;
+
+  /// No description provided for @workoutRemoveBlock.
+  ///
+  /// In es, this message translates to:
+  /// **'Quitar bloque'**
+  String get workoutRemoveBlock;
+
+  /// No description provided for @durationSeconds.
+  ///
+  /// In es, this message translates to:
+  /// **'{value} s'**
+  String durationSeconds(int value);
+
+  /// No description provided for @durationMinutes.
+  ///
+  /// In es, this message translates to:
+  /// **'{value} min'**
+  String durationMinutes(int value);
 
   /// No description provided for @back.
   ///

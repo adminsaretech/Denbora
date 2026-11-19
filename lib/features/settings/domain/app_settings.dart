@@ -9,7 +9,7 @@ class AppSettings {
     this.voiceEnabled = false,
     this.hapticsEnabled = true,
     this.keepScreenOn = false,
-    this.backgroundCuesEnabled = true,
+    this.backgroundCuesEnabled = false,
     this.onboardingCompleted = false,
   });
 

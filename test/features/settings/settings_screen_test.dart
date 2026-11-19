@@ -33,6 +33,12 @@ void main() {
     expect(find.byKey(const ValueKey('setting-keepScreenOn')), findsOneWidget);
     expect(find.byKey(const ValueKey('setting-backgroundCuesEnabled')),
         findsOneWidget);
+    expect(
+      tester.widget<SwitchListTile>(
+        find.byKey(const ValueKey('setting-backgroundCuesEnabled')),
+      ).onChanged,
+      isNull,
+    );
   });
 
   testWidgets('sound setting can be turned off and is saved', (tester) async {

@@ -42,9 +42,14 @@ dependencies:
   flutter_secure_storage: ^11.2.0
   path_provider: ^2.1.6
   shared_preferences: ^2.5.6
+  audioplayers: 6.8.1
+  flutter_tts: 4.2.5
+  wakelock_plus: 1.8.2
 
 dev_dependencies:
   flutter_test:
+    sdk: flutter
+  integration_test:
     sdk: flutter
 
   # The "flutter_lints" package below contains a set of recommended lints to
@@ -53,6 +58,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^6.0.0
+  flutter_launcher_icons: 0.14.4
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -68,6 +74,7 @@ flutter:
 
   assets:
     - assets/branding/tempo-app-icon-1024.png
+    - assets/audio/
 
   fonts:
     - family: Manrope
@@ -102,6 +109,13 @@ flutter:
   #       - asset: fonts/TrajanPro.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf
   #         weight: 700
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: assets/branding/tempo-app-icon-1024.png
+  remove_alpha_ios: true
+  min_sdk_android: 24
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package

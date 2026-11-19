@@ -1,6 +1,6 @@
 # Política de privacidad / Privacy policy
 
-**Versión:** borrador de trabajo, 18 de noviembre de 2026  
+**Versión:** borrador de trabajo, 19 de noviembre de 2026
 **Aplicación:** Tempo: Workout Timer (nombre provisional)  
 **Estado:** no publicar hasta completar los campos del responsable y contrastar el texto con el binario y sus dependencias.
 
@@ -19,13 +19,13 @@ Estos datos son obligatorios antes de distribuir la aplicación. La política de
 
 El diseño de la primera versión no requiere cuenta ni servidor. Las rutinas que crea la persona usuaria, los ajustes de la aplicación y el resumen local de las sesiones (fecha, duración y rondas completadas) se guardan en el almacenamiento privado de la aplicación en el dispositivo para que Tempo pueda mostrarlos y utilizarlos sin conexión.
 
-La aplicación no está diseñada para enviar esa información a SareTech ni a terceros, crear perfiles, medir publicidad, vender datos o mostrar anuncios. No incluye registro, analítica, publicidad ni compras en esta versión. Estas declaraciones se deben verificar contra el código, los manifiestos de permisos, las dependencias y una captura de tráfico de la compilación candidata antes de publicarla.
+La aplicación no incluye backend, cuenta, analítica, publicidad ni compras. La app no envía entrenamientos ni historial a SareTech. Cuando se activan los avisos de voz, frases cortas y genéricas de fase/cuenta atrás se entregan al servicio TTS instalado en el dispositivo; ese proveedor y la configuración del sistema pueden tener su propio tratamiento de datos o síntesis en red. Tempo no graba audio ni solicita micrófono. Antes de publicar, verificar en dispositivos si el servicio TTS elegido procesa texto fuera del dispositivo y ajustar las declaraciones de tienda.
 
 ### Funciones del dispositivo
 
-- Si la persona habilita notificaciones, el sistema puede mostrar avisos relacionados con una sesión activa. Tempo no usa un servidor de notificaciones remoto para ello.
-- Los avisos hablados usan la voz instalada en el sistema operativo y frases genéricas de fase o cuenta atrás. Tempo no graba audio ni necesita acceder al micrófono.
-- El uso de vibración y de mantener la pantalla activa se limita a la sesión solicitada.
+- La versión actual no solicita permiso de notificaciones ni presenta avisos persistentes en segundo plano; esa función nativa está pendiente.
+- Los avisos hablados usan frases genéricas con la voz del sistema. El proveedor TTS instalado puede procesarlas según sus propios ajustes; Tempo no graba audio ni necesita acceder al micrófono.
+- El uso de vibración y de mantener la pantalla activa se limita a la sesión visible solicitada. El wakelock no mantiene el proceso ejecutándose en segundo plano.
 - La primera versión no solicita acceso a HealthKit, Health Connect, ubicación, contactos, cámara o fotos.
 
 Las rutinas e historial se eliminarán desde los controles de borrado incluidos en la aplicación o al desinstalarla, según el comportamiento del sistema operativo. Tempo no mantiene una copia propia en la nube. La política de copias de seguridad del dispositivo depende de iOS o Android y de la configuración elegida por cada persona; antes del lanzamiento se debe fijar si la base de datos se excluye de esas copias.
@@ -36,9 +36,9 @@ La integración con Apple Health/HealthKit, Health Connect/Google Fit, Apple Wat
 
 ### Seguridad, conservación y derechos
 
-Los datos de la sesión permanecen en el almacenamiento privado de la app. La implementación debe confirmar el cifrado en reposo cuando los datos personales/de ejercicio lo requieran y evitar incluir copias sin cifrar en respaldos. No se declara aquí un mecanismo de cifrado específico hasta verificarlo en la compilación de entrega.
+Entrenamientos, sesiones y sesión activa se guardan en una base Hive CE cifrada con AES-256-CBC; su clave aleatoria se guarda mediante Keychain/Android secure storage. AES-CBC no autentica los registros. Ajustes de presentación se guardan en preferencias locales normales. La copia de seguridad y restauración de esos archivos debe verificarse en cada plataforma antes de publicar.
 
-No hay datos almacenados en servidores de Tempo ni un periodo de retención del servidor. La persona usuaria puede borrar los entrenamientos o el historial mediante la aplicación; el borrado de todos los datos locales debe estar disponible en Ajustes antes del lanzamiento. Si desea ejercer derechos sobre datos personales o hacer una consulta, podrá contactar al responsable mediante los datos indicados arriba una vez completados.
+No hay datos almacenados en servidores de Tempo ni un periodo de retención del servidor. Se pueden borrar entrenamientos personalizados; el historial todavía no incluye controles de borrado y debe añadirse una acción para eliminar todos los datos locales antes del lanzamiento. Para ejercer derechos o hacer una consulta, se podrá contactar al responsable cuando se completen los datos indicados arriba.
 
 ### Cambios
 
@@ -59,13 +59,13 @@ These details must be completed before distribution. This policy must be hosted 
 
 The first-release design requires no account or server. Workouts created by the user, app settings and a local session summary (date, duration and completed rounds) are stored in the app's private device storage so Tempo can display them and work offline.
 
-The app is not designed to send this information to SareTech or another party, build profiles, measure advertising, sell data or show ads. This release includes no sign-in, analytics, advertising or purchases. Verify these statements against the source, permission manifests, dependencies and a network capture from the release candidate before publication.
+The app includes no backend, account, analytics, advertising or purchases. It does not send workouts or history to SareTech. When voice cues are enabled, short generic phase/countdown phrases are passed to the system TTS engine installed on the device. That provider and the device settings may process speech under their own terms or synthesize it over a network. Tempo does not record audio or request microphone access. Before publication, verify on devices whether the selected TTS engine sends text off-device and update store disclosures as needed.
 
 ### Device features
 
-- If the user enables notifications, the operating system may show session-related notices. Tempo does not use a remote push-notification server.
-- Spoken cues use the voice installed in the operating system and generic phase or countdown wording. Tempo does not record audio or need microphone access.
-- Vibration and keeping the display awake are limited to a session the user starts.
+- The current build does not request notification permission or show persistent background notices; that native feature is pending.
+- Spoken cues use generic wording through the installed system TTS engine. Its provider may process text according to its own settings; Tempo does not record audio or need microphone access.
+- Vibration and keeping the display awake are limited to the visible session. The screen wakelock does not keep the app process running in the background.
 - The first release does not request access to HealthKit, Health Connect, location, contacts, camera or photos.
 
 Workouts and history can be removed through the app's delete controls or by uninstalling it, subject to operating-system behavior. Tempo does not keep its own cloud copy. Device backup behavior depends on iOS or Android and the user's settings; before release, decide whether the database is excluded from these backups.
@@ -76,9 +76,9 @@ Apple Health/HealthKit, Health Connect/Google Fit, Apple Watch and Wear OS integ
 
 ### Security, retention and user rights
 
-Session data stays in the app's private storage. Confirm at-rest encryption where personal or exercise data requires it, and prevent unencrypted copies from entering backups. This draft does not promise a specific encryption method until it is verified in the release build.
+Workouts, sessions and the active-session snapshot are stored in a Hive CE database encrypted with AES-256-CBC; a random key is stored through Keychain/Android secure storage. AES-CBC does not authenticate records. Display preferences are kept in ordinary local preferences. Verify backup and restore behavior on each platform before publication.
 
-Tempo has no server-side session-data store and no server retention period. Users can delete workouts or history in the app; a clear-all-local-data control must be available in Settings before release. Once the controller details above are filled in, users can contact the controller to ask about their personal data or exercise their applicable rights.
+Tempo has no server-side session-data store and no server retention period. Users can delete custom workouts; history does not yet offer delete controls. Add a clear-all-local-data action before release. Users can contact the controller about personal data once the details above are completed.
 
 ### Changes
 

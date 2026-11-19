@@ -1,6 +1,12 @@
 # Tempo architecture
 
-**Status:** proposed implementation architecture. This document distinguishes app-owned behavior from native OS work that needs later device and store validation.
+**Status:** design baseline with the current Flutter foundation implemented. This document distinguishes app-owned behavior from native OS work that still needs implementation and device/store validation.
+
+## Implementation snapshot — 19 November 2026
+
+Implemented in the current branch: Riverpod shell, encrypted Hive CE repositories, platform monotonic clock source, timer state machine/controller, workout CRUD and templates, timer and history screens, ES/EN settings/onboarding, original WAV cues, system TTS, haptics, and opt-in screen wakelock. Android sets minSdk 24 and targetSdk 36; iOS sets iOS 16 and bundle ID `com.saretech.tempo`.
+
+Not implemented yet: Android foreground service/ongoing notification, iOS local notification/ActivityKit Live Activity, health/watch integrations, release signing keys/configuration, and store-ready real-device screenshots. `flutter test` and `flutter analyze` run on Windows; Xcode signing, simulator and device checks require macOS.
 
 ## Decisions
 

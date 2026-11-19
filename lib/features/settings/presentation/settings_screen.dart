@@ -153,6 +153,7 @@ class SettingsScreen extends ConsumerWidget {
                     title: strings.settingsBackgroundCues,
                     subtitle: strings.settingsBackgroundCuesNote,
                     value: settings.backgroundCuesEnabled,
+                    enabled: false,
                     onChanged: (value) => unawaited(
                       update(settings.copyWith(backgroundCuesEnabled: value)),
                     ),
@@ -181,6 +182,7 @@ class SettingsScreen extends ConsumerWidget {
     required String title,
     String? subtitle,
     required bool value,
+    bool enabled = true,
     required ValueChanged<bool> onChanged,
   }) =>
       SwitchListTile(
@@ -189,7 +191,7 @@ class SettingsScreen extends ConsumerWidget {
         title: Text(title),
         subtitle: subtitle == null ? null : Text(subtitle),
         value: value,
-        onChanged: onChanged,
+        onChanged: enabled ? onChanged : null,
       );
 }
 

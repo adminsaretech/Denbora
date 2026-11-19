@@ -4,8 +4,10 @@ import 'package:material_ui/material_ui.dart';
 import '../core/localization/app_localizations.dart';
 import '../core/theme/app_theme.dart';
 import '../features/onboarding/presentation/onboarding_screen.dart';
+import '../features/history/presentation/history_screen.dart';
 import '../features/settings/data/settings_repository.dart';
 import '../features/settings/presentation/settings_screen.dart';
+import '../features/workouts/presentation/workout_library_screen.dart';
 
 class TempoApp extends ConsumerWidget {
   const TempoApp({super.key, this.homeOverride});
@@ -23,7 +25,8 @@ class TempoApp extends ConsumerWidget {
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: settings.themeMode,
-      home: homeOverride ??
+      home:
+          homeOverride ??
           (settings.onboardingCompleted
               ? const TempoHomeScreen()
               : const OnboardingScreen()),
@@ -45,9 +48,7 @@ class TempoHomeScreen extends StatelessWidget {
             tooltip: strings.homeSettings,
             icon: const Icon(Icons.settings_outlined),
             onPressed: () => Navigator.of(context).push(
-              MaterialPageRoute<void>(
-                builder: (_) => const SettingsScreen(),
-              ),
+              MaterialPageRoute<void>(builder: (_) => const SettingsScreen()),
             ),
           ),
         ],
@@ -64,9 +65,8 @@ class TempoHomeScreen extends StatelessWidget {
                 children: [
                   Text(
                     strings.homeTitle,
-                    style: Theme.of(context).textTheme.headlineMedium?.copyWith(
-                          fontWeight: FontWeight.w800,
-                        ),
+                    style: Theme.of(context).textTheme.headlineMedium
+                        ?.copyWith(fontWeight: FontWeight.w800),
                   ),
                   const SizedBox(height: 8),
                   Text(
@@ -75,13 +75,21 @@ class TempoHomeScreen extends StatelessWidget {
                   ),
                   const SizedBox(height: 24),
                   FilledButton.icon(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const WorkoutLibraryScreen(),
+                      ),
+                    ),
                     icon: const Icon(Icons.fitness_center_rounded),
                     label: Text(strings.homeTitle),
                   ),
                   const SizedBox(height: 12),
                   OutlinedButton.icon(
-                    onPressed: () {},
+                    onPressed: () => Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (_) => const HistoryScreen(),
+                      ),
+                    ),
                     icon: const Icon(Icons.history_rounded),
                     label: Text(strings.homeHistory),
                   ),
