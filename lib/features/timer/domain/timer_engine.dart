@@ -67,6 +67,24 @@ class TimerEngine {
     return _makeSnapshot(events: events);
   }
 
+  TimerSnapshot restore({
+    required Duration elapsed,
+    required TimerStatus status,
+  }) {
+    if (_status != TimerStatus.idle) {
+      throw StateError('A timer can only be restored before it starts.');
+    }
+    if (status != TimerStatus.running &&
+        status != TimerStatus.paused &&
+        status != TimerStatus.interrupted) {
+      throw ArgumentError.value(status, 'status', 'Unsupported restore status.');
+    }
+    _elapsedMicroseconds = elapsed.inMicroseconds < 0 ? 0 : elapsed.inMicroseconds;
+    _lastNowMicroseconds = clock.nowMicroseconds();
+    _status = status;
+    return _makeSnapshot();
+  }
+
   TimerSnapshot advance() {
     if (_status != TimerStatus.running) return _makeSnapshot();
 
@@ -340,8 +358,9 @@ class TimerEngine {
 
   TimerSnapshot _makeSnapshot({List<TimerEvent> events = const []}) {
     final index = _phaseIndexAtElapsed();
-    final isFinished =
-        _status == TimerStatus.completed || _status == TimerStatus.stopped;
+    final isFinished = _status == TimerStatus.completed ||
+        _status == TimerStatus.stopped ||
+        _status == TimerStatus.interrupted;
     final phase = isFinished || index >= _phases.length
         ? _finishedPhase
         : _phases[index];

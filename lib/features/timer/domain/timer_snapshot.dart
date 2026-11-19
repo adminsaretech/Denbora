@@ -1,6 +1,6 @@
 import 'timer_phase.dart';
 
-enum TimerStatus { idle, running, paused, completed, stopped }
+enum TimerStatus { idle, running, paused, completed, stopped, interrupted }
 
 enum TimerEventKind {
   started,
@@ -48,5 +48,18 @@ class TimerSnapshot {
   bool get isRunning => status == TimerStatus.running;
   bool get isPaused => status == TimerStatus.paused;
   bool get isFinished =>
-      status == TimerStatus.completed || status == TimerStatus.stopped;
+      status == TimerStatus.completed ||
+      status == TimerStatus.stopped ||
+      status == TimerStatus.interrupted;
+
+  TimerSnapshot withEvents(List<TimerEvent> value) => TimerSnapshot(
+        status: status,
+        phase: phase,
+        phaseIndex: phaseIndex,
+        phaseCount: phaseCount,
+        phaseRemaining: phaseRemaining,
+        elapsed: elapsed,
+        completedWorkBlocks: completedWorkBlocks,
+        events: value,
+      );
 }
